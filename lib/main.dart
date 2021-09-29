@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Financeiro - P.I',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.blue, //comentario
       ),
       /* home: const MyHomePage(title: 'Flutter Demo Home Page'), */
     );
