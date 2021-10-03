@@ -23,7 +23,7 @@ class HomeI extends StatelessWidget {
           },
         ),
         title:
-            Text("Tech Motors", style: TextStyle(fontWeight: FontWeight.bold)),
+            Text("Financeiro", style: TextStyle(fontWeight: FontWeight.bold)),
         backgroundColor: Color(0xF513B5EB),
       ),
       drawer: new Drawer(
@@ -42,15 +42,7 @@ class HomeI extends StatelessWidget {
             accountEmail: null,
           ),
           ListTile(
-            leading: Icon(FontAwesome.asl_interpreting),
-            title: Text("Home"),
-            onTap: () async {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => HomeI()));
-            },
-          ),
-          ListTile(
-            leading: Icon(FontAwesome.asl_interpreting),
+            leading: Icon(FontAwesome.dollar),
             title: Text("Contas a receber"),
             onTap: () async {
               Navigator.push(
@@ -58,7 +50,7 @@ class HomeI extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.person),
+            leading: Icon(FontAwesome.money),
             title: Text("Contas a pagar"),
             /* onTap: () async {
                 Navigator.push(context,
