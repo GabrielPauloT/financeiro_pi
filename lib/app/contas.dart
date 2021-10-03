@@ -23,7 +23,7 @@ class HomeII extends StatelessWidget {
           },
         ),
         title:
-            Text("Financeiro", style: TextStyle(fontWeight: FontWeight.bold)),
+            Text("Financeiroo", style: TextStyle(fontWeight: FontWeight.bold)),
         backgroundColor: Color(0xF513B5EB),
       ),
       drawer: new Drawer(
@@ -42,7 +42,7 @@ class HomeII extends StatelessWidget {
             accountEmail: null,
           ),
           ListTile(
-            leading: Icon(FontAwesome.asl_interpreting),
+            leading: Icon(FontAwesome.home),
             title: Text("Home"),
             onTap: () async {
               Navigator.push(
@@ -57,6 +57,7 @@ class HomeII extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => Profile()));
               }, */
           ),
+          //
           ListTile(
             leading: Icon(Icons.person),
             title: Text("Contas a pagar"),
