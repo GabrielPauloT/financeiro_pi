@@ -24,7 +24,7 @@ class HomeI extends StatelessWidget {
         ),
         title:
             Text("Financeiro", style: TextStyle(fontWeight: FontWeight.bold)),
-        backgroundColor: Color(0xF513B5EB),
+        backgroundColor: Colors.black,
       ),
       drawer: new Drawer(
         child: ListView(children: <Widget>[
@@ -38,7 +38,7 @@ class HomeI extends StatelessWidget {
             ),
             /* accountEmail: new Text("TechMotrs@tech.com.br"), */
             currentAccountPicture: Image.asset('assets/imagens/download.jpeg'),
-            decoration: new BoxDecoration(color: Color(0xF513B5EB)),
+            decoration: new BoxDecoration(color: Colors.black),
             accountEmail: null,
           ),
           ListTile(
