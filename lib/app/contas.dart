@@ -42,7 +42,7 @@ class HomeII extends StatelessWidget {
             accountEmail: null,
           ),
           ListTile(
-            leading: Icon(FontAwesome.asl_interpreting),
+            leading: Icon(FontAwesome.home),
             title: Text("Home"),
             onTap: () async {
               Navigator.push(
