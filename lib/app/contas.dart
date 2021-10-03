@@ -3,8 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:fluttericon/font_awesome_icons.dart';
 
-class HomeI extends StatelessWidget {
-  const HomeI({Key? key}) : super(key: key);
+class HomeII extends StatelessWidget {
+  const HomeII({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class HomeI extends StatelessWidget {
           },
         ),
         title:
-            Text("Financeiro", style: TextStyle(fontWeight: FontWeight.bold)),
+            Text("Tech Motors", style: TextStyle(fontWeight: FontWeight.bold)),
         backgroundColor: Color(0xF513B5EB),
       ),
       drawer: new Drawer(
@@ -41,7 +41,7 @@ class HomeI extends StatelessWidget {
             accountEmail: null,
           ),
           ListTile(
-            leading: Icon(FontAwesome.dollar),
+            leading: Icon(FontAwesome.asl_interpreting),
             title: Text("Contas a receber"),
             /* onTap: () async {
                 Navigator.push(context,
@@ -49,7 +49,7 @@ class HomeI extends StatelessWidget {
               }, */
           ),
           ListTile(
-            leading: Icon(FontAwesome.money),
+            leading: Icon(Icons.person),
             title: Text("Contas a pagar"),
             /* onTap: () async {
                 Navigator.push(context,
@@ -57,10 +57,33 @@ class HomeI extends StatelessWidget {
               }, */
           )
         ]),
+      
       ),
+
+
+
+      body: GridView.count(
+  // Create a grid with 2 columns. If you change the scrollDirection to
+  // horizontal, this produces 2 rows.
+  crossAxisCount: 2,
+  // Generate 100 widgets that display their index in the List.
+  children: List.generate(100, (index) {
+    return Center(
+      child: Text(
+        'Item $index',
+        style: Theme.of(context).textTheme.headline5,
+      ),
+    );
+  }),
+),
+
+
+
+
+      
     );
   }
 
-  
+
 
 }
