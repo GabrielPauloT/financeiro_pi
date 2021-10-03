@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'app/contas.dart';
 import 'app/home.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue, //comentario
       ),
-      home: const HomeI(),
+      home: const HomeII(),
     );
   }
 }
