@@ -2,6 +2,7 @@
 
 import 'package:financeiro_pi/app/contasapagar.dart';
 import 'package:financeiro_pi/app/home.dart';
+import 'package:financeiro_pi/repositories/lista_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttericon/font_awesome_icons.dart';
 
@@ -10,6 +11,9 @@ class HomeII extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
+    final tabela = ListaRepository.tabela;
+    
     return Scaffold(
       appBar: AppBar(
         leading: Builder(
@@ -68,20 +72,31 @@ class HomeII extends StatelessWidget {
           )
         ]),
       ),
-      body: GridView.count(
-        // Create a grid with 2 columns. If you change the scrollDirection to
-        // horizontal, this produces 2 rows.
-        crossAxisCount: 2,
-        // Generate 100 widgets that display their index in the List.
-        children: List.generate(100, (index) {
-          return Center(
-            child: Text(
-              'Item $index',
-              style: Theme.of(context).textTheme.headline5,
-            ),
+      
+      
+            
+body: ListView.separated(
+        itemBuilder: (BuildContext context, int lista) {
+          return ListTile(
+
+              leading: Image.asset(tabela[lista].foto),
+              title: Text(tabela[lista].cliente),
+              subtitle: Text(tabela[lista].pagoEm),
+              trailing: Text(tabela[lista].valor.toString()),
+              
+        
+              
           );
-        }),
-      ),
+
+           
+
+  
+        
+        },
+        padding: EdgeInsets.all(16),
+        separatorBuilder: (_, ____) => Divider(), 
+        itemCount: tabela.length,)
+      
     );
   }
 }
