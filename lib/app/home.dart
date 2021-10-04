@@ -1,5 +1,5 @@
 // ignore_for_file: prefer_const_constructors, unnecessary_new
-
+import 'package:financeiro_pi/app/contasapagar.dart';
 import 'package:financeiro_pi/app/contas.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttericon/font_awesome_icons.dart';
@@ -42,6 +42,14 @@ class HomeI extends StatelessWidget {
             accountEmail: null,
           ),
           ListTile(
+            leading: Icon(FontAwesome.home),
+            title: Text("Home"),
+            onTap: () async {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => HomeI()));
+            },
+          ),
+          ListTile(
             leading: Icon(FontAwesome.dollar),
             title: Text("Contas a receber"),
             onTap: () async {
@@ -52,10 +60,10 @@ class HomeI extends StatelessWidget {
           ListTile(
             leading: Icon(FontAwesome.money),
             title: Text("Contas a pagar"),
-            /* onTap: () async {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Profile()));
-              }, */
+            onTap: () async {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => HomeIII()));
+            },
           )
         ]),
       ),
