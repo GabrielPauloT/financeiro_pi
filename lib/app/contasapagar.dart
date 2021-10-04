@@ -1,13 +1,12 @@
 // ignore_for_file: prefer_const_constructors, unnecessary_new
 
-/* import 'package:financeiro_pi/app/contas.dart'; */
+import 'package:financeiro_pi/app/contas.dart';
+import 'package:financeiro_pi/app/home.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttericon/font_awesome_icons.dart';
 
-import 'home/home_screen.dart';
-/* import 'package:fluttericon/font_awesome_icons.dart'; */
-
-class HomeI extends StatelessWidget {
-  const HomeI({Key? key}) : super(key: key);
+class HomeIII extends StatelessWidget {
+  const HomeIII({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +17,7 @@ class HomeI extends StatelessWidget {
             return IconButton(
               icon: const Icon(Icons.menu),
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => HomeScreen()));
+                Scaffold.of(context).openDrawer();
               },
               tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
             );
@@ -27,10 +25,9 @@ class HomeI extends StatelessWidget {
         ),
         title:
             Text("Financeiro", style: TextStyle(fontWeight: FontWeight.bold)),
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.grey.shade900,
       ),
-
-      /* drawer: new Drawer(
+      drawer: new Drawer(
         child: ListView(children: <Widget>[
           UserAccountsDrawerHeader(
             accountName: new Text(
@@ -70,7 +67,21 @@ class HomeI extends StatelessWidget {
             },
           )
         ]),
-      ), */
+      ),
+      body: GridView.count(
+        // Create a grid with 2 columns. If you change the scrollDirection to
+        // horizontal, this produces 2 rows.
+        crossAxisCount: 2,
+        // Generate 100 widgets that display their index in the List.
+        children: List.generate(100, (index) {
+          return Center(
+            child: Text(
+              'Item $index',
+              style: Theme.of(context).textTheme.headline5,
+            ),
+          );
+        }),
+      ),
     );
   }
 }

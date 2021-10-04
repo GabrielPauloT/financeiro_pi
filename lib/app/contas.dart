@@ -1,15 +1,26 @@
 // ignore_for_file: prefer_const_constructors, unnecessary_new
 
+import 'package:financeiro_pi/app/contasapagar.dart';
 import 'package:financeiro_pi/app/home.dart';
+import 'package:financeiro_pi/models/model_lista.dart';
+import 'package:financeiro_pi/repositories/lista_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttericon/font_awesome_icons.dart';
+import 'package:data_table_2/data_table_2.dart';
 
 class HomeII extends StatelessWidget {
   const HomeII({Key? key}) : super(key: key);
 
+  
   @override
   Widget build(BuildContext context) {
+    
+    final tabela = ListaRepository.tabela;
+
+  
+  
     return Scaffold(
+      
       appBar: AppBar(
         leading: Builder(
           builder: (BuildContext context) {
@@ -24,7 +35,7 @@ class HomeII extends StatelessWidget {
         ),
         title:
             Text("Financeiroo", style: TextStyle(fontWeight: FontWeight.bold)),
-        backgroundColor: Color(0xF513B5EB),
+        backgroundColor: Colors.grey.shade900,
       ),
       drawer: new Drawer(
         child: ListView(children: <Widget>[
@@ -38,7 +49,7 @@ class HomeII extends StatelessWidget {
             ),
             /* accountEmail: new Text("TechMotrs@tech.com.br"), */
             currentAccountPicture: Image.asset('assets/imagens/download.jpeg'),
-            decoration: new BoxDecoration(color: Color(0xF513B5EB)),
+            decoration: new BoxDecoration(color: Colors.grey.shade900),
             accountEmail: null,
           ),
           ListTile(
@@ -50,38 +61,93 @@ class HomeII extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(FontAwesome.asl_interpreting),
+            leading: Icon(FontAwesome.dollar),
             title: Text("Contas a receber"),
-            /* onTap: () async {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Profile()));
-              }, */
+            onTap: () async {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => HomeII()));
+            },
           ),
-          //
           ListTile(
-            leading: Icon(Icons.person),
+            leading: Icon(FontAwesome.money),
             title: Text("Contas a pagar"),
-            /* onTap: () async {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Profile()));
-              }, */
+            onTap: () async {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => HomeIII()));
+            },
           )
         ]),
       ),
-      body: GridView.count(
-        // Create a grid with 2 columns. If you change the scrollDirection to
-        // horizontal, this produces 2 rows.
-        crossAxisCount: 2,
-        // Generate 100 widgets that display their index in the List.
-        children: List.generate(100, (index) {
-          return Center(
-            child: Text(
-              'Item $index',
-              style: Theme.of(context).textTheme.headline5,
+      
+      
+     body:
+     
+     
+     
+      Padding(
+
+
+      padding: const EdgeInsets.all(16),
+      child: DataTable2(
+          columnSpacing: 70,
+          horizontalMargin: 10,
+          minWidth: 400,
+          columns: [
+           
+            DataColumn2(
+              label: Text('Título'),
+              size: ColumnSize.S,
             ),
-          );
-        }),
-      ),
+            DataColumn2(
+              label: Text('Cliente'),
+              size: ColumnSize.M,
+            ),
+            DataColumn2(
+              label: Text('Vencimento'),
+              size: ColumnSize.S,
+            ),
+            DataColumn2(
+              label: Text('Valor'),
+              size: ColumnSize.S,
+              numeric: true,
+            ),
+            DataColumn2(
+              label: Text('A pagar'),
+              size: ColumnSize.S,
+              numeric: true,
+            ),
+
+            DataColumn2(
+              label: Text('Pago em'),
+              size: ColumnSize.S,
+              
+            ),
+
+            
+            DataColumn(
+              label: Text('Valor pago'),
+              numeric: true,
+            ),
+            
+          ],
+          rows: List<DataRow>.generate(
+              tabela.length,
+              (lista) => DataRow(cells: [
+                    DataCell(Text(tabela[lista].titulo)),
+                    DataCell(Text(tabela[lista].cliente)),
+                    DataCell(Text(tabela[lista].vencimento)),
+                    DataCell(Text(tabela[lista].valor.toString())),
+                    DataCell(Text(tabela[lista].aPagar.toString())),
+                    DataCell(Text(tabela[lista].pagoEm)),
+                    DataCell(Text(tabela[lista].valorPago.toString())),
+                    
+                  ]))),
+    ),
+
+
+      
     );
   }
+
+
 }
