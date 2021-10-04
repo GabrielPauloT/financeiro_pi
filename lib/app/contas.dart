@@ -94,7 +94,7 @@ class HomeII extends StatelessWidget {
           minWidth: 400,
           columns: [
            
-            DataColumn2(
+           new DataColumn2(
               label: Text('Título'),
               size: ColumnSize.S,
             ),
