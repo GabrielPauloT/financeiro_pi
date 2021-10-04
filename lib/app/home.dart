@@ -1,8 +1,10 @@
 // ignore_for_file: prefer_const_constructors, unnecessary_new
 
-import 'package:financeiro_pi/app/contas.dart';
+/* import 'package:financeiro_pi/app/contas.dart'; */
 import 'package:flutter/material.dart';
-import 'package:fluttericon/font_awesome_icons.dart';
+
+import 'home/home_screen.dart';
+/* import 'package:fluttericon/font_awesome_icons.dart'; */
 
 class HomeI extends StatelessWidget {
   const HomeI({Key? key}) : super(key: key);
@@ -16,17 +18,19 @@ class HomeI extends StatelessWidget {
             return IconButton(
               icon: const Icon(Icons.menu),
               onPressed: () {
-                Scaffold.of(context).openDrawer();
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => HomeScreen()));
               },
               tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
             );
           },
         ),
         title:
-            Text("Financeiro", style: TextStyle(fontWeight: FontWeight.bold)),
+            Text("Financeiroo", style: TextStyle(fontWeight: FontWeight.bold)),
         backgroundColor: Colors.black,
       ),
-      drawer: new Drawer(
+
+      /* drawer: new Drawer(
         child: ListView(children: <Widget>[
           UserAccountsDrawerHeader(
             accountName: new Text(
@@ -58,7 +62,7 @@ class HomeI extends StatelessWidget {
               }, */
           )
         ]),
-      ),
+      ), */
     );
   }
 }
