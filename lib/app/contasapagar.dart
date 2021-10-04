@@ -24,7 +24,7 @@ class HomeIII extends StatelessWidget {
           },
         ),
         title:
-            Text("Financeiroo", style: TextStyle(fontWeight: FontWeight.bold)),
+            Text("Financeiro", style: TextStyle(fontWeight: FontWeight.bold)),
         backgroundColor: Colors.grey.shade900,
       ),
       drawer: new Drawer(
