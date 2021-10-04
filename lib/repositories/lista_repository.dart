@@ -10,10 +10,10 @@ class ListaRepository {
           titulo: 'Cadastro', 
           cliente: 'Esdras Lemos', 
           vencimento: '03/10/2021', 
-          valor: 10000.0, 
-          aPagar: 10000.0, 
+          valor: 1000, 
+          aPagar: 1000, 
           pagoEm: 'Não pago.', 
-          valorPago: 0, 
+          valorPago: 10, 
           
   ),
 
@@ -23,10 +23,10 @@ class ListaRepository {
           titulo: 'Cadastro', 
           cliente: 'Marcos Antônio', 
           vencimento: '03/10/2021', 
-          valor: 1000.0, 
-          aPagar: 500.0, 
+          valor: 1000, 
+          aPagar: 500, 
           pagoEm: '05/10/2021', 
-          valorPago: 500.0, 
+          valorPago: 500, 
           
   ),
 
@@ -36,8 +36,8 @@ class ListaRepository {
           titulo: 'Cadastro', 
           cliente: 'Gabriel', 
           vencimento: '03/10/2021', 
-          valor: 10000.0, 
-          aPagar: 10000.0, 
+          valor: 1000, 
+          aPagar: 1000, 
           pagoEm: 'Não pago.', 
           valorPago: 0, 
           
