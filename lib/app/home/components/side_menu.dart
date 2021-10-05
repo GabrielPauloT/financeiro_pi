@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttericon/font_awesome_icons.dart';
 
 import '../pag_screen.dart';
+import '../receb_screen.dart';
 
 class SideMenu extends StatelessWidget {
   const SideMenu({
@@ -65,7 +66,12 @@ class SideMenu extends StatelessWidget {
               DrawerListTile(
                 title: "Contas a Receber",
                 icon: FontAwesome.dollar,
-                press: () {},
+                press: () async {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const RecebScreen()));
+                },
               ),
               DrawerListTile(
                 title: "",

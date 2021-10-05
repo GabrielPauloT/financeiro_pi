@@ -5,8 +5,8 @@ import '../../main.dart';
 import '../../responsive.dart';
 import 'components/side_menu.dart';
 
-class PagScreen extends StatelessWidget {
-  const PagScreen({Key? key}) : super(key: key);
+class RecebScreen extends StatelessWidget {
+  const RecebScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class PagScreen extends StatelessWidget {
             const Expanded(
               // It takes 5/6 part of the screen
               flex: 5,
-              child: HomeIII(),
+              child: HomeII(),
             ),
           ],
         ),

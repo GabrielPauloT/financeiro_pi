@@ -1,10 +1,6 @@
 import 'package:financeiro_pi/app/home/home_screen.dart';
 import 'package:flutter/material.dart';
 
-import 'app/contas.dart';
-import 'app/home.dart';
-import 'app/contasapagar.dart';
-
 void main() {
   runApp(const MyApp());
 }
