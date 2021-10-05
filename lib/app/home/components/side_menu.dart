@@ -98,6 +98,36 @@ class SideMenu extends StatelessWidget {
                 icon: null,
                 press: () {},
               ),
+              DrawerListTile(
+                title: "",
+                icon: null,
+                press: () {},
+              ),
+              DrawerListTile(
+                title: "",
+                icon: null,
+                press: () {},
+              ),
+              DrawerListTile(
+                title: "",
+                icon: null,
+                press: () {},
+              ),
+              DrawerListTile(
+                title: "",
+                icon: null,
+                press: () {},
+              ),
+              DrawerListTile(
+                title: "",
+                icon: null,
+                press: () {},
+              ),
+              DrawerListTile(
+                title: "",
+                icon: null,
+                press: () {},
+              ),
             ],
           ),
         ),

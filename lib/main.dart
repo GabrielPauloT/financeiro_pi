@@ -1,8 +1,5 @@
 import 'package:financeiro_pi/app/home/home_screen.dart';
-import 'package:financeiro_pi/app/home/receb_screen.dart';
 import 'package:flutter/material.dart';
-
-import 'app/contas.dart';
 
 void main() {
   runApp(const MyApp());

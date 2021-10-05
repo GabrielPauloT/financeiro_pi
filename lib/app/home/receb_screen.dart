@@ -1,7 +1,6 @@
 /* import 'package:financeiro_pi/app/dashboard/dashboard_screen.dart'; */
 import 'package:flutter/material.dart';
 
-import '../../main.dart';
 import '../../responsive.dart';
 import '../contas.dart';
 import 'components/side_menu.dart';
