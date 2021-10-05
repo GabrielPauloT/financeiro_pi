@@ -25,7 +25,7 @@ class HomeII extends StatelessWidget {
           },
         ),
         title:
-            Text("Financeiroo", style: TextStyle(fontWeight: FontWeight.bold)),
+            Text("Financeiro", style: TextStyle(fontWeight: FontWeight.bold)),
         backgroundColor: Colors.grey.shade900,
       ),
       body: Padding(
