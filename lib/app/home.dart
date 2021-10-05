@@ -40,47 +40,6 @@ class HomeI extends StatelessWidget {
         backgroundColor: const Color(0xFF1A202E),
       ),
 
-      /* drawer: new Drawer(
-        child: ListView(children: <Widget>[
-          UserAccountsDrawerHeader(
-            accountName: new Text(
-              "Financeiro",
-              style: new TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 17.0,
-              ),
-            ),
-            /* accountEmail: new Text("TechMotrs@tech.com.br"), */
-            currentAccountPicture: Image.asset('assets/imagens/download.jpeg'),
-            decoration: new BoxDecoration(color: Colors.grey.shade900),
-            accountEmail: null,
-          ),
-          ListTile(
-            leading: Icon(FontAwesome.home),
-            title: Text("Home"),
-            onTap: () async {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => HomeI()));
-            },
-          ),
-          ListTile(
-            leading: Icon(FontAwesome.dollar),
-            title: Text("Contas a receber"),
-            onTap: () async {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => HomeII()));
-            },
-          ),
-          ListTile(
-            leading: Icon(FontAwesome.money),
-            title: Text("Contas a pagar"),
-            onTap: () async {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => HomeIII()));
-            },
-          )
-        ]),
-      ), */
     );
   }
 }
