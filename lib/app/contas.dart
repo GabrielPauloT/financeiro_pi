@@ -13,10 +13,8 @@ class HomeII extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final tabela = ListaRepository.tabela;
-    bool visivel = true;
-    if (Responsive.isDesktop(context)) {
-      visivel = false;
-    }
+    bool visivel;
+    Responsive.isDesktop(context) ? visivel = false : visivel = true;
     return Scaffold(
       drawer: const SideMenu(),
       appBar: AppBar(

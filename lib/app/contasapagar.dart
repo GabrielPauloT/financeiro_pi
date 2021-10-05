@@ -10,10 +10,8 @@ class HomeIII extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool visivel = true;
-    if (Responsive.isDesktop(context)) {
-      visivel = false;
-    }
+    bool visivel;
+    Responsive.isDesktop(context) ? visivel = false : visivel = true;
     return Scaffold(
       drawer: const SideMenu(),
       appBar: AppBar(
