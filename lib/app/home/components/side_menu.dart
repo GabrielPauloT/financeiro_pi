@@ -17,7 +17,7 @@ class SideMenu extends StatelessWidget {
       child: SingleChildScrollView(
         // it enables scrolling
         child: Container(
-          color: Colors.black,
+          color: const Color(0xFF1A202E),
           child: Column(
             children: [
               DrawerHeader(

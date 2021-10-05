@@ -3,7 +3,9 @@
 /* import 'package:financeiro_pi/app/contas.dart'; */
 import 'package:flutter/material.dart';
 
-import 'home/home_screen.dart';
+import '../../responsive.dart';
+
+import 'home/components/side_menu.dart';
 /* import 'package:fluttericon/font_awesome_icons.dart'; */
 
 class HomeI extends StatelessWidget {
@@ -11,23 +13,33 @@ class HomeI extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool visivel = true;
+    if (Responsive.isDesktop(context)) {
+      visivel = false;
+    }
     return Scaffold(
+      drawer: const SideMenu(),
       appBar: AppBar(
         leading: Builder(
           builder: (BuildContext context) {
-            return IconButton(
-              icon: const Icon(Icons.menu),
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => HomeScreen()));
-              },
-              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+            return Visibility(
+              child: IconButton(
+                icon: const Icon(Icons.menu),
+                onPressed: () {
+                  Scaffold.of(context).openDrawer();
+                },
+                tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+              ),
+              maintainSize: true,
+              maintainAnimation: true,
+              maintainState: true,
+              visible: visivel,
             );
           },
         ),
         title:
             Text("Financeiro", style: TextStyle(fontWeight: FontWeight.bold)),
-        backgroundColor: Colors.black,
+        backgroundColor: const Color(0xFF1A202E),
       ),
 
       /* drawer: new Drawer(

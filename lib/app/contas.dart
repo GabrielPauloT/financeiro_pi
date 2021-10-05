@@ -4,29 +4,42 @@ import 'package:financeiro_pi/repositories/lista_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:data_table_2/data_table_2.dart';
 
+import '../responsive.dart';
+import 'home/components/side_menu.dart';
+
 class HomeII extends StatelessWidget {
   const HomeII({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final tabela = ListaRepository.tabela;
-
+    bool visivel = true;
+    if (Responsive.isDesktop(context)) {
+      visivel = false;
+    }
     return Scaffold(
+      drawer: const SideMenu(),
       appBar: AppBar(
         leading: Builder(
           builder: (BuildContext context) {
-            return IconButton(
-              icon: const Icon(Icons.menu),
-              onPressed: () {
-                Scaffold.of(context).openDrawer();
-              },
-              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+            return Visibility(
+              child: IconButton(
+                icon: const Icon(Icons.menu),
+                onPressed: () {
+                  Scaffold.of(context).openDrawer();
+                },
+                tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+              ),
+              maintainSize: true,
+              maintainAnimation: true,
+              maintainState: true,
+              visible: visivel,
             );
           },
         ),
         title:
             Text("Financeiro", style: TextStyle(fontWeight: FontWeight.bold)),
-        backgroundColor: Colors.grey.shade900,
+        backgroundColor: const Color(0xFF1A202E),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
