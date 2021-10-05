@@ -16,6 +16,7 @@ class HomeI extends StatelessWidget {
     bool visivel;
     Responsive.isDesktop(context) ? visivel = false : visivel = true;
     return Scaffold(
+      backgroundColor: Color(0xFFF4F4F7),
       drawer: const SideMenu(),
       appBar: AppBar(
         leading: Builder(
@@ -39,7 +40,6 @@ class HomeI extends StatelessWidget {
             Text("Financeiro", style: TextStyle(fontWeight: FontWeight.bold)),
         backgroundColor: const Color(0xFF1A202E),
       ),
-
     );
   }
 }

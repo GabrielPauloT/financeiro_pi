@@ -16,6 +16,7 @@ class HomeII extends StatelessWidget {
     bool visivel;
     Responsive.isDesktop(context) ? visivel = false : visivel = true;
     return Scaffold(
+      backgroundColor: Color(0xFFF4F4F7),
       drawer: const SideMenu(),
       appBar: AppBar(
         leading: Builder(
