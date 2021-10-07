@@ -22,7 +22,7 @@ class SideMenu extends StatelessWidget {
         physics: const NeverScrollableScrollPhysics(),
         // it enables scrolling
         child: Container(
-          height: 700,
+          height: 1000,
           color: const Color(0xFF1A202E),
           child: Column(
             children: [

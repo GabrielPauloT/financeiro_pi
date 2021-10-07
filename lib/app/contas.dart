@@ -48,7 +48,7 @@ class HomeII extends StatelessWidget {
             child: RichText(
               text: TextSpan(
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Colors.black,
                   fontSize: 18.0,
                 ),
                 text: 'Victor Pereira ',
