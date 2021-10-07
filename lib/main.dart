@@ -10,8 +10,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp (
       title: 'Financeiro - P.I',
+      debugShowCheckedModeBanner :false,
       theme: ThemeData(
         primarySwatch: Colors.blue, //comentario
       ),

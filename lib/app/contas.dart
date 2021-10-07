@@ -39,6 +39,31 @@ class HomeII extends StatelessWidget {
         title:
             Text("Financeiro", style: TextStyle(fontWeight: FontWeight.bold)),
         backgroundColor: const Color(0xFF1A202E),
+        
+        actions: [
+
+          Container(
+
+            padding: EdgeInsets.only(top: 15, right: 10),
+            child: RichText(
+              text: TextSpan(
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18.0,
+                ),
+                text: 'Victor Pereira ',
+                children: const[
+                  WidgetSpan(
+
+                    child: Icon(Icons.person),
+                  ),
+                ],
+              ),
+            ),
+          )
+        ],
+
+
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
