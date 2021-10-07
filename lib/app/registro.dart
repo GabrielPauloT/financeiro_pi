@@ -72,6 +72,7 @@ class _Registro_testeState extends State<Registro_teste> {
       body: Padding(
         padding: const EdgeInsets.only(top: 100),
         child: ListView(
+          physics: const NeverScrollableScrollPhysics(),
           children: [
             Container(
                 color: Color(0xFFEBEBEE),
@@ -248,7 +249,7 @@ class _Registro_testeState extends State<Registro_teste> {
                                                                       context,
                                                                       MaterialPageRoute(
                                                                           builder: (context) =>
-                                                                              const Registro_teste()),
+                                                                              const RecebScreen()),
                                                                     );
                                                                   },
                                                                 ),
