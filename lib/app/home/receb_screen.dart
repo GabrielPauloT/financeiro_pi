@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../responsive.dart';
 import '../contas.dart';
+import '../registro.dart';
 import 'components/side_menu.dart';
 
 class RecebScreen extends StatelessWidget {
@@ -27,7 +28,7 @@ class RecebScreen extends StatelessWidget {
             const Expanded(
               // It takes 5/6 part of the screen
               flex: 5,
-              child: HomeII(),
+              child: Registro_teste(),
             ),
           ],
         ),
