@@ -78,6 +78,7 @@ class _Registro_testeState extends State<Registro_teste> {
                 color: Color(0xFFEBEBEE),
                 height: 70,
                 child: ListView(
+                  physics: const NeverScrollableScrollPhysics(),
                   children: [
                     Container(
                       width: double.infinity,
