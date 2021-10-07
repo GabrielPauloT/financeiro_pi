@@ -1,14 +1,14 @@
 import 'package:financeiro_pi/repositories/lista_repository.dart';
 import 'package:flutter/material.dart';
 
-
 class Teste extends StatefulWidget {
+  const Teste({Key? key}) : super(key: key);
+
   @override
   _TesteState createState() => _TesteState();
 }
 
 class _TesteState extends State<Teste> {
-
   final List<ListItem> _dropdownItems = [
     ListItem(1, "First Value"),
     ListItem(2, "Second Item"),
@@ -19,6 +19,8 @@ class _TesteState extends State<Teste> {
   late List<DropdownMenuItem<ListItem>> _dropdownMenuItems;
   late ListItem _selectedItem;
 
+  @override
+  // ignore: must_call_super
   void initState() {
     _dropdownMenuItems = buildDropDownMenuItems(_dropdownItems);
     _selectedItem = _dropdownMenuItems[0].value!;
@@ -41,10 +43,10 @@ class _TesteState extends State<Teste> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Dropdown Button"),
+        title: const Text("Dropdown Button"),
       ),
       body: Container(
-        padding: EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0),
         child: DropdownButton<ListItem>(
             value: _selectedItem,
             items: _dropdownMenuItems,

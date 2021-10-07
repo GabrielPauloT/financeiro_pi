@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 
 import '../../responsive.dart';
-import '../contas.dart';
 import '../registro.dart';
 import 'components/side_menu.dart';
 

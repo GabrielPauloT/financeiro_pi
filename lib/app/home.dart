@@ -19,8 +19,7 @@ class HomeI extends StatelessWidget {
       extendBodyBehindAppBar: true,
       backgroundColor: Color(0xFFF4F4F7),
       drawer: const SideMenu(),
-        appBar: AppBar(
-
+      appBar: AppBar(
         leading: Builder(
           builder: (BuildContext context) {
             return Visibility(
@@ -38,16 +37,11 @@ class HomeI extends StatelessWidget {
             );
           },
         ),
-        title:
-            Text("Financeiro", style: TextStyle(color: Colors.black)),
+        title: Text("Financeiro", style: TextStyle(color: Colors.black)),
         backgroundColor: Colors.transparent,
         elevation: 0,
-
-        
         actions: [
-
           Container(
-
             padding: EdgeInsets.only(top: 15, right: 10),
             child: RichText(
               text: TextSpan(
@@ -56,9 +50,8 @@ class HomeI extends StatelessWidget {
                   fontSize: 18.0,
                 ),
                 text: 'Victor Pereira ',
-                children: const[
+                children: const [
                   WidgetSpan(
-
                     child: Icon(Icons.person, color: Colors.black),
                   ),
                 ],
@@ -66,11 +59,7 @@ class HomeI extends StatelessWidget {
             ),
           )
         ],
-        
-        
-        
       ),
     );
-
   }
 }
