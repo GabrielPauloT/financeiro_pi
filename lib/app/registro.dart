@@ -373,7 +373,109 @@ class _Registro_testeState extends State<Registro_teste> {
                                           Icons.delete,
                                           color: Colors.red,
                                         ),
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          showDialog(
+                                              context: context,
+                                              builder: (BuildContext context) {
+                                                return AlertDialog(
+                                                  scrollable: true,
+                                                  title: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Text(
+                                                            "Realmente deseja excluir este registro ? "),
+                                                        Container(
+                                                          padding:
+                                                              EdgeInsets.only(
+                                                            left: 20,
+                                                            bottom: 5,
+                                                          ),
+                                                          child: IconButton(
+                                                              onPressed: () {
+                                                                Navigator.push(
+                                                                  context,
+                                                                  MaterialPageRoute(
+                                                                      builder:
+                                                                          (context) =>
+                                                                              const Registro_teste()),
+                                                                );
+                                                              },
+                                                              icon: const Icon(
+                                                                Icons
+                                                                    .cancel_outlined,
+                                                                color:
+                                                                    Colors.red,
+                                                              )),
+                                                        )
+                                                      ]),
+                                                  actions: [
+                                                    Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      //mainAxisAlignment: MainAxisAlignment.center,
+                                                      //crossAxisAlignment: CrossAxisAlignment.center,
+                                                      children: <Widget>[
+                                                        Container(
+                                                          color: Colors.green,
+                                                          width: 200,
+                                                          //width: MediaQuery.of(context).size.width * 0.20,
+                                                          child: TextButton(
+                                                            child: new Text(
+                                                              'Sim',
+                                                              style: TextStyle(
+                                                                  color: Colors
+                                                                      .white),
+                                                            ),
+                                                            onPressed: () {
+                                                              Navigator.of(
+                                                                      context)
+                                                                  .pop();
+                                                            },
+                                                          ),
+                                                        ),
+                                                        SizedBox(
+                                                            width: MediaQuery.of(
+                                                                        context)
+                                                                    .size
+                                                                    .width *
+                                                                0.01),
+                                                        Container(
+                                                          color: Colors.red,
+                                                          width: 200,
+                                                          //width: MediaQuery.of(context).size.width * 0.20,
+                                                          child: TextButton(
+                                                            child: new Text(
+                                                              'Não',
+                                                              style: TextStyle(
+                                                                  color: Colors
+                                                                      .white),
+                                                            ),
+                                                            onPressed: () {
+                                                              Navigator.push(
+                                                                context,
+                                                                MaterialPageRoute(
+                                                                    builder:
+                                                                        (context) =>
+                                                                            const Registro_teste()),
+                                                              );
+                                                            },
+                                                          ),
+                                                        ),
+                                                        SizedBox(
+                                                          height: MediaQuery.of(
+                                                                      context)
+                                                                  .size
+                                                                  .height *
+                                                              0.02,
+                                                        ),
+                                                      ],
+                                                    )
+                                                  ],
+                                                );
+                                              });
+                                        },
                                       ),
                                       IconButton(
                                         icon: const Icon(FontAwesome.docs),
