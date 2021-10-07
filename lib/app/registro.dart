@@ -7,6 +7,7 @@ import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/services.dart';
 import '../../responsive.dart';
 import 'home/components/side_menu.dart';
+import 'home/receb_screen.dart';
 
 // ignore: camel_case_types
 class Registro_teste extends StatefulWidget {
@@ -147,7 +148,7 @@ class _Registro_testeState extends State<Registro_teste> {
                                                                           Navigator
                                                                               .push(
                                                                             context,
-                                                                            MaterialPageRoute(builder: (context) => const Registro_teste()),
+                                                                            MaterialPageRoute(builder: (context) => const RecebScreen()),
                                                                           );
                                                                         },
                                                                         icon:
