@@ -1,6 +1,6 @@
 class Lista {
 
-   
+    int status;
     String titulo;
     String cliente;
     String vencimento;
@@ -11,7 +11,7 @@ class Lista {
 
     Lista({
 
-        
+        required this.status,
         required this.titulo,
         required this.cliente,
         required this.vencimento,

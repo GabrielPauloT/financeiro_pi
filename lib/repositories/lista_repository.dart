@@ -6,7 +6,7 @@ class ListaRepository {
 
     Lista(
       
-          
+          status: 2,
           titulo: 'Cadastro', 
           cliente: 'Esdras Lemos', 
           vencimento: '03/10/2021', 
@@ -19,7 +19,7 @@ class ListaRepository {
 
       Lista(
       
-          
+          status: 1,
           titulo: 'Cadastro', 
           cliente: 'Marcos Antônio', 
           vencimento: '10/10/2021', 
@@ -32,7 +32,7 @@ class ListaRepository {
 
       Lista(
       
-          
+          status: 1,
           titulo: 'Cadastro', 
           cliente: 'Gabriel Paulo', 
           vencimento: '07/10/2021', 
@@ -45,7 +45,7 @@ class ListaRepository {
 
       Lista(
       
-          
+          status: 3,
           titulo: 'Cadastro', 
           cliente: 'Victor Pereira', 
           vencimento: '05/10/2021', 
@@ -58,7 +58,7 @@ class ListaRepository {
 
         Lista(
       
-          
+          status: 2,
           titulo: 'Cadastro', 
           cliente: 'Gabriel Phillipy', 
           vencimento: '15/10/2021', 

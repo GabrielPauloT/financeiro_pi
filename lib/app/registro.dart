@@ -266,6 +266,10 @@ class _Registro_testeState extends State<Registro_teste> {
                       minWidth: 200,
                       columns: [
                         new DataColumn2(
+                          label: Text('Status'),
+                          size: ColumnSize.S,
+                        ),
+                        DataColumn2(
                           label: Text('Título'),
                           size: ColumnSize.M,
                         ),
@@ -305,9 +309,9 @@ class _Registro_testeState extends State<Registro_teste> {
                       rows: List<DataRow>.generate(
                           tabela.length,
                           (lista) => DataRow(cells: [
-                                DataCell(Text(
-                                  tabela[lista].titulo,
-                                )),
+                                
+                                DataCell(Text(tabela[lista].status.toString())),
+                                DataCell(Text(tabela[lista].titulo,)),
                                 DataCell(Text(tabela[lista].cliente)),
                                 DataCell(Text(tabela[lista].vencimento)),
                                 DataCell(Text(tabela[lista].valor.toString())),
