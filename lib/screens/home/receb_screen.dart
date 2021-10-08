@@ -1,12 +1,11 @@
-/* import 'package:financeiro_pi/app/dashboard/dashboard_screen.dart'; */
+import 'package:financeiro_pi/screens/contas_receber.dart';
 import 'package:flutter/material.dart';
 
 import '../../responsive.dart';
-import '../contasapagar.dart';
 import 'components/side_menu.dart';
 
-class PagScreen extends StatelessWidget {
-  const PagScreen({Key? key}) : super(key: key);
+class RecebScreen extends StatelessWidget {
+  const RecebScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +26,7 @@ class PagScreen extends StatelessWidget {
             const Expanded(
               // It takes 5/6 part of the screen
               flex: 5,
-              child: HomeIII(),
+              child: ContasReceber(),
             ),
           ],
         ),

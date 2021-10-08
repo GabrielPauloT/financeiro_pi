@@ -10,15 +10,15 @@ import 'home/components/side_menu.dart';
 import 'home/receb_screen.dart';
 
 // ignore: camel_case_types
-class Registro_teste extends StatefulWidget {
-  const Registro_teste({Key? key}) : super(key: key);
+class ContasReceber extends StatefulWidget {
+  const ContasReceber({Key? key}) : super(key: key);
 
   @override
-  _Registro_testeState createState() => _Registro_testeState();
+  _ContasReceberState createState() => _ContasReceberState();
 }
 
 // ignore: camel_case_types
-class _Registro_testeState extends State<Registro_teste> {
+class _ContasReceberState extends State<ContasReceber> {
   String dropdownValue = "Um";
   final tabela = ListaRepository.tabela;
   @override
@@ -522,7 +522,7 @@ class _Registro_testeState extends State<Registro_teste> {
                                                                   MaterialPageRoute(
                                                                       builder:
                                                                           (context) =>
-                                                                              const Registro_teste()),
+                                                                              const RecebScreen()),
                                                                 );
                                                               },
                                                               icon: const Icon(
@@ -581,7 +581,7 @@ class _Registro_testeState extends State<Registro_teste> {
                                                                 MaterialPageRoute(
                                                                     builder:
                                                                         (context) =>
-                                                                            const Registro_teste()),
+                                                                            const RecebScreen()),
                                                               );
                                                             },
                                                           ),

@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'home/components/custom_appbar.dart';
 import 'home/components/side_menu.dart';
 
-class HomeIII extends StatelessWidget {
-  const HomeIII({Key? key}) : super(key: key);
+class ContasPagar extends StatelessWidget {
+  const ContasPagar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

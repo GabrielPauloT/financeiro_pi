@@ -1,12 +1,13 @@
 /* import 'package:financeiro_pi/app/dashboard/dashboard_screen.dart'; */
+import 'package:financeiro_pi/screens/home/components/side_menu.dart';
 import 'package:flutter/material.dart';
 
-import '../../responsive.dart';
-import '../registro.dart';
-import 'components/side_menu.dart';
+import '../../../responsive.dart';
+import '../home.dart';
 
-class RecebScreen extends StatelessWidget {
-  const RecebScreen({Key? key}) : super(key: key);
+
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,7 @@ class RecebScreen extends StatelessWidget {
             const Expanded(
               // It takes 5/6 part of the screen
               flex: 5,
-              child: Registro_teste(),
+              child: DashBoard(),
             ),
           ],
         ),

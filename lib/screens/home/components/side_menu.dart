@@ -1,4 +1,3 @@
-import 'package:financeiro_pi/app/home/home_screen.dart';
 import 'package:financeiro_pi/core/constants/color_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttericon/font_awesome_icons.dart';
@@ -7,6 +6,7 @@ import 'package:hovering/hovering.dart';
 
 import 'package:animated_text_kit/animated_text_kit.dart';
 
+import '../home_screen.dart';
 import '../pag_screen.dart';
 import '../receb_screen.dart';
 

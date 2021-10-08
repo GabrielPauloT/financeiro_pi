@@ -1,4 +1,4 @@
-import 'package:financeiro_pi/models/model_lista.dart';
+import 'package:financeiro_pi/core/models/model_lista.dart';
 
 class ListaRepository {
 
