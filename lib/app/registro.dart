@@ -367,7 +367,167 @@ class _Registro_testeState extends State<Registro_teste> {
                                           Icons.edit,
                                           color: Colors.yellow,
                                         ),
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          showDialog(
+                                              context: context,
+                                              builder: (BuildContext context) {
+                                                return AlertDialog(
+                                                  scrollable: true,
+                                                  title: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Text(
+                                                            "Alteração de Registro"),
+                                                        Container(
+                                                          padding:
+                                                              EdgeInsets.only(
+                                                                  left: 150),
+                                                          child: IconButton(
+                                                              onPressed: () {
+                                                                Navigator.push(
+                                                                  context,
+                                                                  MaterialPageRoute(
+                                                                      builder:
+                                                                          (context) =>
+                                                                              const RecebScreen()),
+                                                                );
+                                                              },
+                                                              icon: const Icon(
+                                                                Icons
+                                                                    .cancel_outlined,
+                                                                color:
+                                                                    Colors.red,
+                                                              )),
+                                                        )
+                                                      ]),
+                                                  content: Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(8),
+                                                    child: Form(
+                                                      child: Column(
+                                                        children: [
+                                                          TextFormField(
+                                                            keyboardType:
+                                                                TextInputType
+                                                                    .text,
+                                                            decoration:
+                                                                InputDecoration(
+                                                              labelText:
+                                                                  "Tipo de Cobrança",
+                                                            ),
+                                                          ),
+                                                          TextFormField(
+                                                            keyboardType:
+                                                                TextInputType
+                                                                    .text,
+                                                            decoration:
+                                                                InputDecoration(
+                                                              labelText:
+                                                                  "Descrição",
+                                                            ),
+                                                          ),
+                                                          TextFormField(
+                                                            keyboardType:
+                                                                TextInputType
+                                                                    .datetime,
+                                                            decoration:
+                                                                InputDecoration(
+                                                              labelText:
+                                                                  "Vencimento",
+                                                            ),
+                                                          ),
+                                                          TextFormField(
+                                                            keyboardType:
+                                                                TextInputType
+                                                                    .number,
+                                                            decoration:
+                                                                InputDecoration(
+                                                              labelText:
+                                                                  "Valor do Titulo",
+                                                            ),
+                                                          ),
+                                                          TextFormField(
+                                                            keyboardType:
+                                                                TextInputType
+                                                                    .text,
+                                                            decoration:
+                                                                InputDecoration(
+                                                              labelText:
+                                                                  "Fornecedor",
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  actions: [
+                                                    Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      //mainAxisAlignment: MainAxisAlignment.center,
+                                                      //crossAxisAlignment: CrossAxisAlignment.center,
+                                                      children: <Widget>[
+                                                        Container(
+                                                          color: Colors.green,
+                                                          width: 200,
+                                                          //width: MediaQuery.of(context).size.width * 0.20,
+                                                          child: TextButton(
+                                                            child: new Text(
+                                                              'Salvar',
+                                                              style: TextStyle(
+                                                                  color: Colors
+                                                                      .white),
+                                                            ),
+                                                            onPressed: () {
+                                                              Navigator.of(
+                                                                      context)
+                                                                  .pop();
+                                                            },
+                                                          ),
+                                                        ),
+                                                        SizedBox(
+                                                            width: MediaQuery.of(
+                                                                        context)
+                                                                    .size
+                                                                    .width *
+                                                                0.01),
+                                                        Container(
+                                                          color: Colors.red,
+                                                          width: 200,
+                                                          //width: MediaQuery.of(context).size.width * 0.20,
+                                                          child: TextButton(
+                                                            child: new Text(
+                                                              'Cancelar',
+                                                              style: TextStyle(
+                                                                  color: Colors
+                                                                      .white),
+                                                            ),
+                                                            onPressed: () {
+                                                              Navigator.push(
+                                                                context,
+                                                                MaterialPageRoute(
+                                                                    builder:
+                                                                        (context) =>
+                                                                            const RecebScreen()),
+                                                              );
+                                                            },
+                                                          ),
+                                                        ),
+                                                        SizedBox(
+                                                          height: MediaQuery.of(
+                                                                      context)
+                                                                  .size
+                                                                  .height *
+                                                              0.02,
+                                                        ),
+                                                      ],
+                                                    )
+                                                  ],
+                                                );
+                                              });
+                                        },
                                       ),
                                       IconButton(
                                         icon: const Icon(
@@ -386,11 +546,11 @@ class _Registro_testeState extends State<Registro_teste> {
                                                               .center,
                                                       children: [
                                                         Text(
-                                                            "Realmente deseja excluir este registro ? "),
+                                                            "Realmente deseja excluir o registro ? "),
                                                         Container(
                                                           padding:
                                                               EdgeInsets.only(
-                                                            left: 20,
+                                                            left: 10,
                                                             bottom: 5,
                                                           ),
                                                           child: IconButton(
