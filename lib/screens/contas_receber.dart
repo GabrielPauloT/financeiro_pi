@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors, unnecessary_new
 
-import 'package:financeiro_pi/repositories/lista_repository.dart';
+import 'package:financeiro_pi/core/repositories/lista_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttericon/font_awesome_icons.dart';
 import 'package:data_table_2/data_table_2.dart';

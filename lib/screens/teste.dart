@@ -1,4 +1,4 @@
-import 'package:financeiro_pi/repositories/lista_repository.dart';
+import 'package:financeiro_pi/core/repositories/lista_repository.dart';
 import 'package:flutter/material.dart';
 
 class Teste extends StatefulWidget {
