@@ -1,6 +1,9 @@
 import 'package:financeiro_pi/responsive.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttericon/font_awesome5_icons.dart';
+import 'package:fluttericon/linearicons_free_icons.dart';
+import 'package:hovering/hovering.dart';
 
 import '../../../responsive.dart';
 import '../profile_screan.dart';
@@ -48,7 +51,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
           return Visibility(
             child: IconButton(
               icon: const Icon(
-                Icons.menu,
+                LineariconsFree.menu_circle,
                 color: Colors.black,
               ),
               onPressed: () {
@@ -69,20 +72,29 @@ class _CustomAppBarState extends State<CustomAppBar> {
       actions: [
         Container(
           padding: const EdgeInsets.only(top: 15, right: 10),
-          child: RichText(
-            text: TextSpan(
-              style: const TextStyle(
-                color: Colors.black,
-                fontSize: 18.0,
-              ),
-              recognizer: _longPressRecognizer,
-              text: 'Victor Pereira ',
-              children: const [
-                WidgetSpan(
-                  child: Icon(Icons.person, color: Colors.black),
+          child: HoverAnimatedContainer(
+            child: RichText(
+              text: TextSpan(
+                style: const TextStyle(
+                  color: Colors.black,
+                  fontSize: 18.0,
                 ),
-              ],
+                recognizer: _longPressRecognizer,
+                text: 'Victor Pereira ',
+                children: const [
+                  WidgetSpan(
+                    child:
+                        Icon(FontAwesome5.user_astronaut, color: Colors.black),
+                  ),
+                ],
+              ),
             ),
+            hoverHeight: 160,
+            hoverWidth: 160,
+            width: 150,
+            height: 300,
+/*             color: Colors.white54,
+            hoverColor: const Color(0xFFf7f7f7), */
           ),
         )
       ],
