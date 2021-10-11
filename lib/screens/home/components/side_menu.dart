@@ -74,7 +74,7 @@ class SideMenu extends StatelessWidget {
               ),
               DrawerListTile(
                 title: "Contas a Pagar",
-                icon: FontAwesome.dollar,
+                icon: Icons.money_off,
                 press: () async {
                   Navigator.push(
                       context,
@@ -84,7 +84,7 @@ class SideMenu extends StatelessWidget {
               ),
               DrawerListTile(
                 title: "Contas a Receber",
-                icon: FontAwesome.dollar,
+                icon: Icons.attach_money_sharp,
                 press: () async {
                   Navigator.push(
                       context,
