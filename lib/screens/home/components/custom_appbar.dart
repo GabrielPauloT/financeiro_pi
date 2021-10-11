@@ -1,7 +1,9 @@
 import 'package:financeiro_pi/responsive.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import '../../../responsive.dart';
+import '../profile_screan.dart';
 
 class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   const CustomAppBar({Key? key})
@@ -16,6 +18,26 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
 }
 
 class _CustomAppBarState extends State<CustomAppBar> {
+  late TapGestureRecognizer _longPressRecognizer;
+
+  @override
+  void initState() {
+    super.initState();
+    _longPressRecognizer = TapGestureRecognizer()
+      ..onTap = () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const ProfileScreen()),
+        );
+      };
+  }
+
+  @override
+  void dispose() {
+    _longPressRecognizer.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     late bool visivel;
@@ -48,13 +70,14 @@ class _CustomAppBarState extends State<CustomAppBar> {
         Container(
           padding: const EdgeInsets.only(top: 15, right: 10),
           child: RichText(
-            text: const TextSpan(
-              style: TextStyle(
+            text: TextSpan(
+              style: const TextStyle(
                 color: Colors.black,
                 fontSize: 18.0,
               ),
+              recognizer: _longPressRecognizer,
               text: 'Victor Pereira ',
-              children: [
+              children: const [
                 WidgetSpan(
                   child: Icon(Icons.person, color: Colors.black),
                 ),
