@@ -25,7 +25,10 @@ class _CustomAppBarState extends State<CustomAppBar> {
         builder: (BuildContext context) {
           return Visibility(
             child: IconButton(
-              icon: const Icon(Icons.menu),
+              icon: const Icon(
+                Icons.menu,
+                color: Colors.black,
+              ),
               onPressed: () {
                 Scaffold.of(context).openDrawer();
               },
@@ -38,7 +41,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
           );
         },
       ),
-      title: const Text("Financeiro", style: TextStyle(color: Colors.black)),
+      /* title: const Text("Financeiro", style: TextStyle(color: Colors.black)), */
       backgroundColor: Colors.transparent,
       elevation: 0,
       actions: [
