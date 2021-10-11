@@ -120,37 +120,66 @@ class _ContasReceberState extends State<ContasReceber> {
                                                                         )),
                                                               )
                                                             ]),
-                                                        content: Padding(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                  .all(8),
-                                                          child: Form(
-                                                            child: Column(
-                                                              children: [
-                                                                TextFormField(
-                                                                  keyboardType:
-                                                                      TextInputType
-                                                                          .text,
-                                                                  decoration:
-                                                                      InputDecoration(
-                                                                    labelText:
-                                                                        "Título",
-                                                                  ),
-                                                                ),
-                                                                TextFormField(
-                                                                  keyboardType:
-                                                                      TextInputType
-                                                                          .datetime,
-                                                                  decoration:
-                                                                      InputDecoration(
-                                                                    labelText:
-                                                                        "Vencimento",
-                                                                  ),
-                                                                ),
-                                                              ],
+                                                                   content: Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(8),
+                                                    child: Form(
+                                                      child: Column(
+                                                        children: [
+                                                          TextFormField(
+                                                            keyboardType:
+                                                                TextInputType
+                                                                    .text,
+                                                            decoration:
+                                                                InputDecoration(
+                                                              labelText:
+                                                                  "Tipo de Cobrança",
                                                             ),
                                                           ),
-                                                        ),
+                                                          TextFormField(
+                                                            keyboardType:
+                                                                TextInputType
+                                                                    .text,
+                                                            decoration:
+                                                                InputDecoration(
+                                                              labelText:
+                                                                  "Descrição",
+                                                            ),
+                                                          ),
+                                                          TextFormField(
+                                                            keyboardType:
+                                                                TextInputType
+                                                                    .datetime,
+                                                            decoration:
+                                                                InputDecoration(
+                                                              labelText:
+                                                                  "Vencimento",
+                                                            ),
+                                                          ),
+                                                          TextFormField(
+                                                            keyboardType:
+                                                                TextInputType
+                                                                    .number,
+                                                            decoration:
+                                                                InputDecoration(
+                                                              labelText:
+                                                                  "Valor do Titulo",
+                                                            ),
+                                                          ),
+                                                          TextFormField(
+                                                            keyboardType:
+                                                                TextInputType
+                                                                    .text,
+                                                            decoration:
+                                                                InputDecoration(
+                                                              labelText:
+                                                                  "Fornecedor",
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
                                                         actions: [
                                                           Row(
                                                             mainAxisSize:
