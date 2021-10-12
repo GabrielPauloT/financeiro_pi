@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import '../../../responsive.dart';
 import '../perfil.dart';
 
-
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);
 
@@ -28,7 +27,7 @@ class ProfileScreen extends StatelessWidget {
             const Expanded(
               // It takes 5/6 part of the screen
               flex: 5,
-              child: MyProfile(),
+              child: LoginScreen(),
             ),
           ],
         ),

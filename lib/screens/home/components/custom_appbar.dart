@@ -1,10 +1,11 @@
 import 'package:financeiro_pi/responsive.dart';
+import 'package:financeiro_pi/screens/home/components/popover_teste.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttericon/font_awesome5_icons.dart';
 import 'package:fluttericon/linearicons_free_icons.dart';
 import 'package:hovering/hovering.dart';
-
+import 'package:popover/popover.dart';
 import '../../../responsive.dart';
 import '../profile_screan.dart';
 
@@ -28,9 +29,17 @@ class _CustomAppBarState extends State<CustomAppBar> {
     super.initState();
     _longPressRecognizer = TapGestureRecognizer()
       ..onTap = () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const ProfileScreen()),
+        showPopover(
+          context: context,
+          transitionDuration: const Duration(milliseconds: 150),
+          bodyBuilder: (context) => const ListItems(),
+          /* onPop: () => print('Popover was popped!'), */
+          direction: PopoverDirection.top,
+          width: 400,
+          height: 400,
+          arrowHeight: 15,
+          arrowWidth: 30,
+          backgroundColor: const Color(0xFF1A202E),
         );
       };
   }
