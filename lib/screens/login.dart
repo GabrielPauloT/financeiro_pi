@@ -49,7 +49,7 @@ class LoginScrean extends StatelessWidget {
           builder: (context) => const HomeScreen(),
         ));
       },
-      onRecoverPassword: _recoverPassword,
+      onRecoverPassword: _recoverPassword, // comentario
     );
   }
 }
