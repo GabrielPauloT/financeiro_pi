@@ -40,6 +40,7 @@ class LoginScrean extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FlutterLogin(
+      /* theme: , */
       title: 'Financeiro',
       logo: 'assets/imagens/download.jpeg',
       onLogin: _authUser,
@@ -49,8 +50,7 @@ class LoginScrean extends StatelessWidget {
           builder: (context) => const HomeScreen(),
         ));
       },
-      onRecoverPassword: _recoverPassword, // comentario
-      //ccc
+      onRecoverPassword: _recoverPassword,
     );
   }
 }

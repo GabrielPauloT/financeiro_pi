@@ -42,6 +42,7 @@ class Button extends StatelessWidget {
             context: context,
             transitionDuration: const Duration(milliseconds: 150),
             bodyBuilder: (context) => const ListItems(),
+            // ignore: avoid_print
             onPop: () => print('Popover was popped!'),
             direction: PopoverDirection.top,
             width: 200,

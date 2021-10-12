@@ -7,7 +7,6 @@ import 'package:fluttericon/linearicons_free_icons.dart';
 import 'package:hovering/hovering.dart';
 import 'package:popover/popover.dart';
 import '../../../responsive.dart';
-import '../profile_screan.dart';
 
 class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   const CustomAppBar({Key? key})
