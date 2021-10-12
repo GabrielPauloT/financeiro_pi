@@ -1,4 +1,6 @@
 import 'package:financeiro_pi/core/constants/color_constants.dart';
+import 'package:financeiro_pi/core/models/model_lista.dart';
+import 'package:financeiro_pi/screens/login.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttericon/font_awesome_icons.dart';
 
@@ -92,13 +94,17 @@ class SideMenu extends StatelessWidget {
                           builder: (context) => const RecebScreen()));
                 },
               ),
-
-              /* DrawerListTile(
-                title: "",
-                icon: null,
-                press: () {},
-              ),
               DrawerListTile(
+                title: "Login",
+                icon: Icons.verified_user,
+                press: () async {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LoginScrean()));
+                },
+              ),
+              /* DrawerListTile(
                 title: "",
                 icon: null,
                 press: () {},

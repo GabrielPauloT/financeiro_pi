@@ -1,9 +1,9 @@
 /* import 'package:financeiro_pi/app/dashboard/dashboard_screen.dart'; */
 import 'package:financeiro_pi/screens/home/components/side_menu.dart';
+import 'package:financeiro_pi/screens/perfil.dart';
 import 'package:flutter/material.dart';
 
 import '../../../responsive.dart';
-import '../perfil.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -27,7 +27,7 @@ class ProfileScreen extends StatelessWidget {
             const Expanded(
               // It takes 5/6 part of the screen
               flex: 5,
-              child: LoginScreen(),
+              child: Perfil(),
             ),
           ],
         ),
