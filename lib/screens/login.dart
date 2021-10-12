@@ -42,7 +42,7 @@ class LoginScrean extends StatelessWidget {
     return FlutterLogin(
       /* theme: , */
       title: 'Financeiro',
-      logo: 'assets/imagens/download.jpeg',
+      logo: 'assets/imagens/download.png',
       onLogin: _authUser,
       onSignup: _authUser,
       onSubmitAnimationCompleted: () {

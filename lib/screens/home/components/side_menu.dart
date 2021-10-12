@@ -36,7 +36,7 @@ class SideMenu extends StatelessWidget {
                     height: defaultPadding * 3,
                   ),
                   Image.asset(
-                    "assets/imagens/download.jpeg",
+                    "assets/imagens/download.png",
                     scale: 4,
                   ),
                   const SizedBox(
