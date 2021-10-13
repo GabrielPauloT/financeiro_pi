@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:popover/popover.dart';
 
+import '../../login.dart';
 import '../profile_screan.dart';
 
 class PopoverExample extends StatelessWidget {
@@ -43,7 +44,7 @@ class Button extends StatelessWidget {
             transitionDuration: const Duration(milliseconds: 150),
             bodyBuilder: (context) => const ListItems(),
             // ignore: avoid_print
-            onPop: () => print('Popover was popped!'),
+            /* onPop: () => print('Popover was popped!'), */
             direction: PopoverDirection.top,
             width: 200,
             height: 400,
@@ -79,24 +80,43 @@ class ListItems extends StatelessWidget {
               },
               child: Container(
                 height: 50,
-                color: Colors.amber[100],
+                color: const Color(0xFF1A202E),
                 child: const ListTile(
-                    title: Text('My Profile'), leading: Icon(Icons.ac_unit)),
+                    title: Text('Meu Perfil',
+                        style: TextStyle(color: Colors.white)),
+                    leading: Icon(Icons.ac_unit, color: Colors.white)),
               ),
             ),
             const Divider(),
-            Container(
+            /* const SizedBox(
               width: 50,
               height: 50,
-              color: Colors.amber[200],
-              child: const Center(child: Text('Entry B')),
+              /* color: Colors.amber[200], */
+              child: Center(child: Text('')),
             ),
             const Divider(),
-            Container(
+            const SizedBox(
               width: 50,
               height: 50,
-              color: Colors.amber[300],
-              child: const Center(child: Text('Entry C')),
+              /* color: Colors.amber[300], */
+              child: Center(child: Text('')),
+            ), */
+            const Padding(padding: EdgeInsets.only(top: 250)),
+            const Divider(),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const LoginScreen()));
+              },
+              child: const SizedBox(
+                width: 50,
+                height: 50,
+                /* color: Colors.amber[300], */
+                child:
+                    ListTile(title: Text('Sair'), leading: Icon(Icons.ac_unit)),
+              ),
             ),
           ],
         ),

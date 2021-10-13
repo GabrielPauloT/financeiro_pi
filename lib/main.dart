@@ -1,4 +1,4 @@
-import 'package:financeiro_pi/screens/home/home_screen.dart';
+import 'package:financeiro_pi/screens/login.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,13 +10,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp (
+    return MaterialApp(
       title: 'Financeiro - P.I',
-      debugShowCheckedModeBanner :false,
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue, //comentario
       ),
-      home: const HomeScreen(),
+      home: const LoginScreen(),
     );
   }
 }

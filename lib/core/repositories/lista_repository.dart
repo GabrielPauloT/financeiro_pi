@@ -62,16 +62,8 @@ class ListItem {
   ListItem(this.value, this.name);
 }
 
-class LoginRepository {
-  static List<Login> tabela = [
-    Login(
-      email: 'teste@hotmail.com',
-      senha: 'teste',
-    ),
-      ];
-}
-
-/* const users = const {
-  'dribbble@gmail.com': '12345',
-  'hunter@gmail.com': 'hunter',
-}; */
+const users = {
+  'teste@hotmail.com': '12345',
+  'sandro@gmail.com': 'sandro',
+  'teste': 'teste',
+};
