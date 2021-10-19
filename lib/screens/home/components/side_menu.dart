@@ -1,5 +1,4 @@
 import 'package:financeiro_pi/core/constants/color_constants.dart';
-import 'package:financeiro_pi/screens/login.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttericon/font_awesome_icons.dart';
 
@@ -93,7 +92,7 @@ class SideMenu extends StatelessWidget {
                           builder: (context) => const RecebScreen()));
                 },
               ),
-              DrawerListTile(
+              /* DrawerListTile(
                 title: "Login",
                 icon: Icons.verified_user,
                 press: () async {
@@ -102,7 +101,7 @@ class SideMenu extends StatelessWidget {
                       MaterialPageRoute(
                           builder: (context) => const LoginScreen()));
                 },
-              ),
+              ), */
               /* DrawerListTile(
                 title: "",
                 icon: null,
