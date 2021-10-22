@@ -68,7 +68,7 @@ class ListItems extends StatelessWidget {
         child: ListView(
           padding: const EdgeInsets.all(8),
           children: [
-            InkWell(
+            /* InkWell(
               onTap: () {
                 Navigator.of(context)
                   ..pop()
@@ -86,6 +86,34 @@ class ListItems extends StatelessWidget {
                         style: TextStyle(color: Colors.white)),
                     leading: Icon(Icons.ac_unit, color: Colors.white)),
               ),
+            ), */
+            Container(
+              height: 50,
+              color: const Color(0xFF1A202E),
+              child: const ListTile(
+                  title: Text('Victor Pereira',
+                      style: TextStyle(color: Colors.white)),
+                  leading: Icon(Icons.ac_unit, color: Colors.white)),
+            ),
+            const Divider(),
+            Container(
+              height: 50,
+              color: Colors.white,
+              child: const ListTile(
+                title: Text('teste@hotmail.com'),
+                leading: Icon(Icons.ac_unit),
+                trailing: Icon(Icons.edit, color: Colors.green),
+              ),
+            ),
+            const Divider(),
+            Container(
+              height: 50,
+              color: Colors.white,
+              child: const ListTile(
+                title: Text('*********'),
+                leading: Icon(Icons.ac_unit),
+                trailing: Icon(Icons.edit, color: Colors.green),
+              ),
             ),
             const Divider(),
             /* const SizedBox(
@@ -101,7 +129,7 @@ class ListItems extends StatelessWidget {
               /* color: Colors.amber[300], */
               child: Center(child: Text('')),
             ), */
-            const Padding(padding: EdgeInsets.only(top: 250)),
+            const Padding(padding: EdgeInsets.only(top: 110)),
             const Divider(),
             GestureDetector(
               onTap: () {
