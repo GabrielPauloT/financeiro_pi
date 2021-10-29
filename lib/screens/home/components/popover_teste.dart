@@ -95,7 +95,7 @@ class ListItems extends StatelessWidget {
                       style: TextStyle(color: Colors.white)),
                   leading: Icon(Icons.ac_unit, color: Colors.white)),
             ),
-            const Divider(),
+            /* const Divider(),
             Container(
               height: 50,
               color: Colors.white,
@@ -114,7 +114,7 @@ class ListItems extends StatelessWidget {
                 leading: Icon(Icons.ac_unit),
                 trailing: Icon(Icons.edit, color: Colors.green),
               ),
-            ),
+            ), */
             const Divider(),
             /* const SizedBox(
               width: 50,
@@ -129,7 +129,7 @@ class ListItems extends StatelessWidget {
               /* color: Colors.amber[300], */
               child: Center(child: Text('')),
             ), */
-            const Padding(padding: EdgeInsets.only(top: 110)),
+            const Padding(padding: EdgeInsets.only(top: 245)),
             const Divider(),
             GestureDetector(
               onTap: () {
