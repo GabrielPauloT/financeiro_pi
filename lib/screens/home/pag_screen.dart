@@ -1,6 +1,5 @@
 /* import 'package:financeiro_pi/app/dashboard/dashboard_screen.dart'; */
 import 'package:flutter/material.dart';
-
 import '../../responsive.dart';
 import '../contas_pagar.dart';
 import 'components/side_menu.dart';
@@ -24,7 +23,7 @@ class PagScreen extends StatelessWidget {
                 // and it takes 1/6 part of the screen
                 child: SideMenu(),
               ),
-            const Expanded(
+            Expanded(
               // It takes 5/6 part of the screen
               flex: 5,
               child: ContasPagar(),
