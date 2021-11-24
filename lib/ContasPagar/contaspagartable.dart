@@ -1,5 +1,7 @@
 // ignore_for_file: unnecessary_new, prefer_const_constructors
 
+import 'package:brasil_fields/brasil_fields.dart';
+import 'package:easy_mask/easy_mask.dart';
 import 'package:financeiro_pi/DataTableMysql/services_contas_a_pagar.dart';
 import 'package:financeiro_pi/DataTableMysql/financeiro_contas_a_pagar.dart';
 import 'package:flutter/material.dart';
@@ -236,6 +238,7 @@ class ContasPagarTableState extends State<ContasPagarTable> {
                                             child: IconButton(
                                                 onPressed: () {
                                                   Navigator.of(context).pop();
+                                                  _clearValues();
                                                 },
                                                 icon: const Icon(
                                                   Icons.cancel_outlined,
@@ -252,9 +255,10 @@ class ContasPagarTableState extends State<ContasPagarTable> {
                                               padding: EdgeInsets.all(20.0),
                                               child: TextField(
                                                 controller: _statuController,
-                                                decoration:
-                                                    InputDecoration.collapsed(
-                                                        hintText: 'Status'),
+                                                decoration: InputDecoration(
+                                                    border:
+                                                        UnderlineInputBorder(),
+                                                    labelText: 'Status'),
                                               ),
                                             ),
                                             Padding(
@@ -265,75 +269,102 @@ class ContasPagarTableState extends State<ContasPagarTable> {
                                                       .digitsOnly
                                                 ],
                                                 controller: _tituloController,
-                                                decoration:
-                                                    InputDecoration.collapsed(
-                                                        hintText: 'Titulo'),
+                                                decoration: InputDecoration(
+                                                    border:
+                                                        UnderlineInputBorder(),
+                                                    labelText: 'titulo'),
                                               ),
                                             ),
                                             Padding(
                                               padding: EdgeInsets.all(20.0),
                                               child: TextField(
                                                 controller: _clienteController,
-                                                decoration:
-                                                    InputDecoration.collapsed(
-                                                        hintText: 'Cliente'),
+                                                decoration: InputDecoration(
+                                                    border:
+                                                        UnderlineInputBorder(),
+                                                    labelText: 'Cliente'),
                                               ),
                                             ),
                                             Padding(
                                               padding: EdgeInsets.all(20.0),
                                               child: TextField(
                                                 inputFormatters: [
-                                                  LengthLimitingTextInputFormatter(
-                                                      10)
+                                                  TextInputMask(
+                                                      mask: '99/99/9999')
                                                 ],
                                                 controller:
                                                     _vencimentoController,
-                                                decoration:
-                                                    InputDecoration.collapsed(
-                                                        hintText: 'Vencimento'),
+                                                decoration: InputDecoration(
+                                                    border:
+                                                        UnderlineInputBorder(),
+                                                    labelText: 'Venciemnto'),
                                               ),
                                             ),
                                             Padding(
                                               padding: EdgeInsets.all(20.0),
                                               child: TextField(
                                                 inputFormatters: [
-                                                  LengthLimitingTextInputFormatter(
-                                                      10)
+                                                  TextInputMask(
+                                                      mask: '\$! !9+,999.99',
+                                                      placeholder: '0',
+                                                      maxPlaceHolders: 3,
+                                                      reverse: true)
                                                 ],
                                                 controller: _aPagarController,
-                                                decoration:
-                                                    InputDecoration.collapsed(
-                                                        hintText:
-                                                            'Valor a pagar'),
+                                                decoration: InputDecoration(
+                                                    border:
+                                                        UnderlineInputBorder(),
+                                                    labelText: 'Valor a Pagar'),
                                               ),
                                             ),
                                             Padding(
                                               padding: EdgeInsets.all(20.0),
                                               child: TextField(
+                                                inputFormatters: [
+                                                  TextInputMask(
+                                                      mask: '\$! !9+,999.99',
+                                                      placeholder: '0',
+                                                      maxPlaceHolders: 3,
+                                                      reverse: true)
+                                                ],
                                                 controller: _valorController,
-                                                decoration:
-                                                    InputDecoration.collapsed(
-                                                        hintText: 'Valor'),
+                                                decoration: InputDecoration(
+                                                    border:
+                                                        UnderlineInputBorder(),
+                                                    labelText: 'Valor'),
                                               ),
                                             ),
                                             Padding(
                                               padding: EdgeInsets.all(20.0),
                                               child: TextField(
+                                                inputFormatters: [
+                                                  TextInputMask(
+                                                      mask: '\$! !9+,999.99',
+                                                      placeholder: '0',
+                                                      maxPlaceHolders: 3,
+                                                      reverse: true)
+                                                ],
                                                 controller:
                                                     _valorPagoController,
-                                                decoration:
-                                                    InputDecoration.collapsed(
-                                                        hintText: 'Valor Pago'),
+                                                decoration: InputDecoration(
+                                                    border:
+                                                        UnderlineInputBorder(),
+                                                    labelText: 'Valor pago'),
                                               ),
                                             ),
                                             Padding(
                                               padding: EdgeInsets.all(20.0),
                                               child: TextField(
+                                                inputFormatters: [
+                                                  TextInputMask(
+                                                      mask: '99/99/9999')
+                                                ],
                                                 controller: _pagoEmController,
-                                                decoration:
-                                                    InputDecoration.collapsed(
-                                                        hintText:
-                                                            'Data de pagamento'),
+                                                decoration: InputDecoration(
+                                                    border:
+                                                        UnderlineInputBorder(),
+                                                    labelText:
+                                                        'Data do pagamento'),
                                               ),
                                             ),
                                           ],
@@ -357,8 +388,7 @@ class ContasPagarTableState extends State<ContasPagarTable> {
                                                     color: Colors.white),
                                               ),
                                               onPressed: () {
-                                                _updateContasPagar(
-                                                    _resgistroFiltrado[lista]);
+                                                _addContasPagar();
                                                 Navigator.of(context).pop();
                                               },
                                             ),
@@ -463,6 +493,7 @@ class ContasPagarTableState extends State<ContasPagarTable> {
                                                                   Navigator.of(
                                                                           context)
                                                                       .pop();
+                                                                  _clearValues();
                                                                 },
                                                                 icon:
                                                                     const Icon(
@@ -488,10 +519,11 @@ class ContasPagarTableState extends State<ContasPagarTable> {
                                                               child: TextField(
                                                                 controller:
                                                                     _statuController,
-                                                                decoration: InputDecoration
-                                                                    .collapsed(
-                                                                        hintText:
-                                                                            'Status'),
+                                                                decoration: InputDecoration(
+                                                                    border:
+                                                                        UnderlineInputBorder(),
+                                                                    labelText:
+                                                                        'Status'),
                                                               ),
                                                             ),
                                                             Padding(
@@ -506,10 +538,11 @@ class ContasPagarTableState extends State<ContasPagarTable> {
                                                                 ],
                                                                 controller:
                                                                     _tituloController,
-                                                                decoration: InputDecoration
-                                                                    .collapsed(
-                                                                        hintText:
-                                                                            'Titulo'),
+                                                                decoration: InputDecoration(
+                                                                    border:
+                                                                        UnderlineInputBorder(),
+                                                                    labelText:
+                                                                        'titulo'),
                                                               ),
                                                             ),
                                                             Padding(
@@ -520,10 +553,11 @@ class ContasPagarTableState extends State<ContasPagarTable> {
                                                               child: TextField(
                                                                 controller:
                                                                     _clienteController,
-                                                                decoration: InputDecoration
-                                                                    .collapsed(
-                                                                        hintText:
-                                                                            'Cliente'),
+                                                                decoration: InputDecoration(
+                                                                    border:
+                                                                        UnderlineInputBorder(),
+                                                                    labelText:
+                                                                        'Cliente'),
                                                               ),
                                                             ),
                                                             Padding(
@@ -533,15 +567,17 @@ class ContasPagarTableState extends State<ContasPagarTable> {
                                                                           20.0),
                                                               child: TextField(
                                                                 inputFormatters: [
-                                                                  LengthLimitingTextInputFormatter(
-                                                                      10)
+                                                                  TextInputMask(
+                                                                      mask:
+                                                                          '99/99/9999')
                                                                 ],
                                                                 controller:
                                                                     _vencimentoController,
-                                                                decoration: InputDecoration
-                                                                    .collapsed(
-                                                                        hintText:
-                                                                            'Vencimento'),
+                                                                decoration: InputDecoration(
+                                                                    border:
+                                                                        UnderlineInputBorder(),
+                                                                    labelText:
+                                                                        'Venciemnto'),
                                                               ),
                                                             ),
                                                             Padding(
@@ -551,15 +587,23 @@ class ContasPagarTableState extends State<ContasPagarTable> {
                                                                           20.0),
                                                               child: TextField(
                                                                 inputFormatters: [
-                                                                  LengthLimitingTextInputFormatter(
-                                                                      10)
+                                                                  TextInputMask(
+                                                                      mask:
+                                                                          '\$! !9+,999.99',
+                                                                      placeholder:
+                                                                          '0',
+                                                                      maxPlaceHolders:
+                                                                          3,
+                                                                      reverse:
+                                                                          true)
                                                                 ],
                                                                 controller:
                                                                     _aPagarController,
-                                                                decoration: InputDecoration
-                                                                    .collapsed(
-                                                                        hintText:
-                                                                            'Valor a pagar'),
+                                                                decoration: InputDecoration(
+                                                                    border:
+                                                                        UnderlineInputBorder(),
+                                                                    labelText:
+                                                                        'Valor a Pagar'),
                                                               ),
                                                             ),
                                                             Padding(
@@ -568,12 +612,24 @@ class ContasPagarTableState extends State<ContasPagarTable> {
                                                                       .all(
                                                                           20.0),
                                                               child: TextField(
+                                                                inputFormatters: [
+                                                                  TextInputMask(
+                                                                      mask:
+                                                                          '\$! !9+,999.99',
+                                                                      placeholder:
+                                                                          '0',
+                                                                      maxPlaceHolders:
+                                                                          3,
+                                                                      reverse:
+                                                                          true)
+                                                                ],
                                                                 controller:
                                                                     _valorController,
-                                                                decoration: InputDecoration
-                                                                    .collapsed(
-                                                                        hintText:
-                                                                            'Valor'),
+                                                                decoration: InputDecoration(
+                                                                    border:
+                                                                        UnderlineInputBorder(),
+                                                                    labelText:
+                                                                        'Valor'),
                                                               ),
                                                             ),
                                                             Padding(
@@ -582,12 +638,24 @@ class ContasPagarTableState extends State<ContasPagarTable> {
                                                                       .all(
                                                                           20.0),
                                                               child: TextField(
+                                                                inputFormatters: [
+                                                                  TextInputMask(
+                                                                      mask:
+                                                                          '\$! !9+,999.99',
+                                                                      placeholder:
+                                                                          '0',
+                                                                      maxPlaceHolders:
+                                                                          3,
+                                                                      reverse:
+                                                                          true)
+                                                                ],
                                                                 controller:
                                                                     _valorPagoController,
-                                                                decoration: InputDecoration
-                                                                    .collapsed(
-                                                                        hintText:
-                                                                            'Valor Pago'),
+                                                                decoration: InputDecoration(
+                                                                    border:
+                                                                        UnderlineInputBorder(),
+                                                                    labelText:
+                                                                        'Valor pago'),
                                                               ),
                                                             ),
                                                             Padding(
@@ -596,12 +664,18 @@ class ContasPagarTableState extends State<ContasPagarTable> {
                                                                       .all(
                                                                           20.0),
                                                               child: TextField(
+                                                                inputFormatters: [
+                                                                  TextInputMask(
+                                                                      mask:
+                                                                          '99/99/9999')
+                                                                ],
                                                                 controller:
                                                                     _pagoEmController,
-                                                                decoration: InputDecoration
-                                                                    .collapsed(
-                                                                        hintText:
-                                                                            'Data de pagamento'),
+                                                                decoration: InputDecoration(
+                                                                    border:
+                                                                        UnderlineInputBorder(),
+                                                                    labelText:
+                                                                        'Data do pagamento'),
                                                               ),
                                                             ),
                                                           ],

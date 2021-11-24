@@ -100,17 +100,10 @@ class _ContasPagarState extends State<ContasPagar> {
         child: ListView(
           physics: const NeverScrollableScrollPhysics(),
           children: [
-            Container(
-                color: Color(0xFFEBEBEE),
-                height: 70,
-                child: ListView(
-                  physics: const NeverScrollableScrollPhysics(),
-                  children: [],
-                )),
             // começa a tabela
             Container(
-                width: 300,
-                height: 300,
+                width: 400,
+                height: 500,
                 color: Colors.white,
                 padding: const EdgeInsets.all(1),
                 child: ContasPagarTable()),

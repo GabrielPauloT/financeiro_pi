@@ -71,13 +71,6 @@ class _ContasReceberState extends State<ContasReceber> {
         child: ListView(
           physics: const NeverScrollableScrollPhysics(),
           children: [
-            Container(
-                color: Color(0xFFEBEBEE),
-                height: 70,
-                child: ListView(
-                  physics: const NeverScrollableScrollPhysics(),
-                  children: [],
-                )),
             // começa a tabela
             Container(
                 width: 400,

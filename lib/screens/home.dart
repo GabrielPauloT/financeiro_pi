@@ -100,7 +100,12 @@ class _DashBoardState extends SampleViewState {
             backgroundColor: Color(0xFFF4F4F7),
             drawer: const SideMenu(),
             appBar: new CustomAppBar(),
-            body: _buildStackedLineChart()));
+            body: Container(
+              alignment: Alignment.bottomCenter,
+              height: 400,
+              width: 1150,
+              child: _buildStackedLineChart(),
+            )));
   }
 
   /// Returns the cartesian stacked line chart.
@@ -131,7 +136,7 @@ class _DashBoardState extends SampleViewState {
       ChartSampleData(
           x: 'Janeiro',
           y: 55,
-          yValue: 40,
+          yValue: 10,
           secondSeriesYValue: 45,
           thirdSeriesYValue: 48),
       ChartSampleData(

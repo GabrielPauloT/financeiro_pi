@@ -37,6 +37,8 @@ dependencies:
   data_table_2: ^2.1.1
   http: ^0.13.4
   syncfusion_flutter_charts: ^19.3.55
+  brasil_fields: 1.3.0
+  easy_mask: ^2.0.1
 
 dev_dependencies:
   flutter_test:
