@@ -165,8 +165,7 @@ class ContasPagarTableState extends State<ContasPagarTable> {
             DataColumn(label: Text('Valor')),
             DataColumn(label: Text('Valor Pago')),
             DataColumn(label: Text('Data Pagamento')),
-            DataColumn(label: Text('Delete')),
-            DataColumn(label: Text('Edit')),
+            DataColumn(label: Text('Ações')),
           ],
           rows: _lista
               .map((lista) => DataRow(cells: [
@@ -197,189 +196,196 @@ class ContasPagarTableState extends State<ContasPagarTable> {
                     DataCell(
                       Text(lista.pagoem),
                     ),
-                    DataCell(
-                      IconButton(
-                        icon: Icon(
-                          Icons.delete,
-                          color: Colors.red,
+                    DataCell(Row(
+                      children: [
+                        IconButton(
+                          icon: Icon(
+                            Icons.delete,
+                            color: Colors.red,
+                          ),
+                          onPressed: () {
+                            _deletePessoa(lista);
+                          },
                         ),
-                        onPressed: () {
-                          _deletePessoa(lista);
-                        },
-                      ),
-                    ),
-                    DataCell(IconButton(
-                      icon: Icon(
-                        Icons.update,
-                        color: Colors.yellow,
-                      ),
-                      onPressed: () {
-                        showDialog(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return AlertDialog(
-                                scrollable: true,
-                                title: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text("Cadatro de Registro"),
-                                      Container(
-                                        padding: EdgeInsets.only(left: 150),
-                                        child: IconButton(
-                                            onPressed: () {
-                                              Navigator.of(context).pop();
-                                            },
-                                            icon: const Icon(
-                                              Icons.cancel_outlined,
-                                              color: Colors.red,
-                                            )),
-                                      )
-                                    ]),
-                                content: Padding(
-                                  padding: const EdgeInsets.all(8),
-                                  child: Form(
-                                    child: Column(
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsets.all(20.0),
-                                          child: TextField(
-                                            controller: _statuController,
-                                            decoration:
-                                                InputDecoration.collapsed(
-                                                    hintText: 'Status'),
-                                          ),
+                        IconButton(
+                          icon: Icon(
+                            Icons.update,
+                            color: Colors.yellow,
+                          ),
+                          onPressed: () {
+                            showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    scrollable: true,
+                                    title: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Text("Cadatro de Registro"),
+                                          Container(
+                                            padding: EdgeInsets.only(left: 150),
+                                            child: IconButton(
+                                                onPressed: () {
+                                                  Navigator.of(context).pop();
+                                                },
+                                                icon: const Icon(
+                                                  Icons.cancel_outlined,
+                                                  color: Colors.red,
+                                                )),
+                                          )
+                                        ]),
+                                    content: Padding(
+                                      padding: const EdgeInsets.all(8),
+                                      child: Form(
+                                        child: Column(
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsets.all(20.0),
+                                              child: TextField(
+                                                controller: _statuController,
+                                                decoration:
+                                                    InputDecoration.collapsed(
+                                                        hintText: 'Status'),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsets.all(20.0),
+                                              child: TextField(
+                                                inputFormatters: [
+                                                  FilteringTextInputFormatter
+                                                      .digitsOnly
+                                                ],
+                                                controller: _tituloController,
+                                                decoration:
+                                                    InputDecoration.collapsed(
+                                                        hintText: 'Titulo'),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsets.all(20.0),
+                                              child: TextField(
+                                                controller: _clienteController,
+                                                decoration:
+                                                    InputDecoration.collapsed(
+                                                        hintText: 'Cliente'),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsets.all(20.0),
+                                              child: TextField(
+                                                inputFormatters: [
+                                                  LengthLimitingTextInputFormatter(
+                                                      10)
+                                                ],
+                                                controller:
+                                                    _vencimentoController,
+                                                decoration:
+                                                    InputDecoration.collapsed(
+                                                        hintText: 'Vencimento'),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsets.all(20.0),
+                                              child: TextField(
+                                                inputFormatters: [
+                                                  LengthLimitingTextInputFormatter(
+                                                      10)
+                                                ],
+                                                controller: _aPagarController,
+                                                decoration:
+                                                    InputDecoration.collapsed(
+                                                        hintText:
+                                                            'Valor a pagar'),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsets.all(20.0),
+                                              child: TextField(
+                                                controller: _valorController,
+                                                decoration:
+                                                    InputDecoration.collapsed(
+                                                        hintText: 'Valor'),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsets.all(20.0),
+                                              child: TextField(
+                                                controller:
+                                                    _valorPagoController,
+                                                decoration:
+                                                    InputDecoration.collapsed(
+                                                        hintText: 'Valor Pago'),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsets.all(20.0),
+                                              child: TextField(
+                                                controller: _pagoEmController,
+                                                decoration:
+                                                    InputDecoration.collapsed(
+                                                        hintText:
+                                                            'Data de pagamento'),
+                                              ),
+                                            ),
+                                          ],
                                         ),
-                                        Padding(
-                                          padding: EdgeInsets.all(20.0),
-                                          child: TextField(
-                                            inputFormatters: [
-                                              FilteringTextInputFormatter
-                                                  .digitsOnly
-                                            ],
-                                            controller: _tituloController,
-                                            decoration:
-                                                InputDecoration.collapsed(
-                                                    hintText: 'Titulo'),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.all(20.0),
-                                          child: TextField(
-                                            controller: _clienteController,
-                                            decoration:
-                                                InputDecoration.collapsed(
-                                                    hintText: 'Cliente'),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.all(20.0),
-                                          child: TextField(
-                                            inputFormatters: [
-                                              LengthLimitingTextInputFormatter(
-                                                  10)
-                                            ],
-                                            controller: _vencimentoController,
-                                            decoration:
-                                                InputDecoration.collapsed(
-                                                    hintText: 'Vencimento'),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.all(20.0),
-                                          child: TextField(
-                                            inputFormatters: [
-                                              LengthLimitingTextInputFormatter(
-                                                  10)
-                                            ],
-                                            controller: _aPagarController,
-                                            decoration:
-                                                InputDecoration.collapsed(
-                                                    hintText: 'Valor a pagar'),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.all(20.0),
-                                          child: TextField(
-                                            controller: _valorController,
-                                            decoration:
-                                                InputDecoration.collapsed(
-                                                    hintText: 'Valor'),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.all(20.0),
-                                          child: TextField(
-                                            controller: _valorPagoController,
-                                            decoration:
-                                                InputDecoration.collapsed(
-                                                    hintText: 'Valor Pago'),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.all(20.0),
-                                          child: TextField(
-                                            controller: _pagoEmController,
-                                            decoration:
-                                                InputDecoration.collapsed(
-                                                    hintText:
-                                                        'Data de pagamento'),
-                                          ),
-                                        ),
-                                      ],
+                                      ),
                                     ),
-                                  ),
-                                ),
-                                actions: [
-                                  Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    //mainAxisAlignment: MainAxisAlignment.center,
-                                    //crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: <Widget>[
-                                      Container(
-                                        color: Colors.green,
-                                        width: 200,
-                                        //width: MediaQuery.of(context).size.width * 0.20,
-                                        child: TextButton(
-                                          child: new Text(
-                                            'Salvar',
-                                            style:
-                                                TextStyle(color: Colors.white),
+                                    actions: [
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        //mainAxisAlignment: MainAxisAlignment.center,
+                                        //crossAxisAlignment: CrossAxisAlignment.center,
+                                        children: <Widget>[
+                                          Container(
+                                            color: Colors.green,
+                                            width: 200,
+                                            //width: MediaQuery.of(context).size.width * 0.20,
+                                            child: TextButton(
+                                              child: new Text(
+                                                'Salvar',
+                                                style: TextStyle(
+                                                    color: Colors.white),
+                                              ),
+                                              onPressed: () {
+                                                _updateContasPagar(lista);
+                                                Navigator.of(context).pop();
+                                              },
+                                            ),
                                           ),
-                                          onPressed: () {
-                                            _updateContasPagar(lista);
-                                            Navigator.of(context).pop();
-                                          },
-                                        ),
-                                      ),
-                                      SizedBox(
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.01),
-                                      Container(
-                                        color: Colors.red,
-                                        width: 200,
-                                        //width: MediaQuery.of(context).size.width * 0.20,
-                                        child: TextButton(
-                                          child: new Text(
-                                            'Cancelar',
-                                            style:
-                                                TextStyle(color: Colors.white),
+                                          SizedBox(
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.01),
+                                          Container(
+                                            color: Colors.red,
+                                            width: 200,
+                                            //width: MediaQuery.of(context).size.width * 0.20,
+                                            child: TextButton(
+                                              child: new Text(
+                                                'Cancelar',
+                                                style: TextStyle(
+                                                    color: Colors.white),
+                                              ),
+                                              onPressed: () {},
+                                            ),
                                           ),
-                                          onPressed: () {},
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height:
-                                            MediaQuery.of(context).size.height *
+                                          SizedBox(
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height *
                                                 0.02,
-                                      ),
+                                          ),
+                                        ],
+                                      )
                                     ],
-                                  )
-                                ],
-                              );
-                            });
-                      },
+                                  );
+                                });
+                          },
+                        ),
+                      ],
                     )),
                   ]))
               .toList(),
@@ -396,6 +402,291 @@ class ContasPagarTableState extends State<ContasPagarTable> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+              child: IntrinsicHeight(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Flexible(
+                      flex: 2,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(17.0),
+                              bottomLeft: Radius.circular(17.0)),
+                        ),
+                        child: Form(
+                          child: TextFormField(
+                            decoration: InputDecoration(
+                              hintText: "Pesquisar...",
+                              border: InputBorder.none,
+                              focusedBorder: InputBorder.none,
+                              enabledBorder: InputBorder.none,
+                              errorBorder: InputBorder.none,
+                              disabledBorder: InputBorder.none,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Flexible(
+                      flex: 2,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Padding(
+                              padding: const EdgeInsets.all(6.0),
+                              child: Container(
+                                alignment: Alignment.centerRight,
+                                padding: EdgeInsets.only(
+                                    top: 10, bottom: 10, right: 20),
+                                child: Wrap(
+                                  spacing: 50,
+                                  children: [
+                                    ElevatedButton(
+                                      onPressed: () {
+                                        showDialog(
+                                            context: context,
+                                            builder: (BuildContext context) {
+                                              return AlertDialog(
+                                                scrollable: true,
+                                                title: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Text(
+                                                          "Cadatro de Registro"),
+                                                      Container(
+                                                        padding:
+                                                            EdgeInsets.only(
+                                                                left: 150),
+                                                        child: IconButton(
+                                                            onPressed: () {
+                                                              Navigator.of(
+                                                                      context)
+                                                                  .pop();
+                                                            },
+                                                            icon: const Icon(
+                                                              Icons
+                                                                  .cancel_outlined,
+                                                              color: Colors.red,
+                                                            )),
+                                                      )
+                                                    ]),
+                                                content: Padding(
+                                                  padding:
+                                                      const EdgeInsets.all(8),
+                                                  child: Form(
+                                                    child: Column(
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  20.0),
+                                                          child: TextField(
+                                                            controller:
+                                                                _statuController,
+                                                            decoration:
+                                                                InputDecoration
+                                                                    .collapsed(
+                                                                        hintText:
+                                                                            'Status'),
+                                                          ),
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  20.0),
+                                                          child: TextField(
+                                                            inputFormatters: [
+                                                              FilteringTextInputFormatter
+                                                                  .digitsOnly
+                                                            ],
+                                                            controller:
+                                                                _tituloController,
+                                                            decoration:
+                                                                InputDecoration
+                                                                    .collapsed(
+                                                                        hintText:
+                                                                            'Titulo'),
+                                                          ),
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  20.0),
+                                                          child: TextField(
+                                                            controller:
+                                                                _clienteController,
+                                                            decoration:
+                                                                InputDecoration
+                                                                    .collapsed(
+                                                                        hintText:
+                                                                            'Cliente'),
+                                                          ),
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  20.0),
+                                                          child: TextField(
+                                                            inputFormatters: [
+                                                              LengthLimitingTextInputFormatter(
+                                                                  10)
+                                                            ],
+                                                            controller:
+                                                                _vencimentoController,
+                                                            decoration:
+                                                                InputDecoration
+                                                                    .collapsed(
+                                                                        hintText:
+                                                                            'Vencimento'),
+                                                          ),
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  20.0),
+                                                          child: TextField(
+                                                            inputFormatters: [
+                                                              LengthLimitingTextInputFormatter(
+                                                                  10)
+                                                            ],
+                                                            controller:
+                                                                _aPagarController,
+                                                            decoration:
+                                                                InputDecoration
+                                                                    .collapsed(
+                                                                        hintText:
+                                                                            'Valor a pagar'),
+                                                          ),
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  20.0),
+                                                          child: TextField(
+                                                            controller:
+                                                                _valorController,
+                                                            decoration:
+                                                                InputDecoration
+                                                                    .collapsed(
+                                                                        hintText:
+                                                                            'Valor'),
+                                                          ),
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  20.0),
+                                                          child: TextField(
+                                                            controller:
+                                                                _valorPagoController,
+                                                            decoration:
+                                                                InputDecoration
+                                                                    .collapsed(
+                                                                        hintText:
+                                                                            'Valor Pago'),
+                                                          ),
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  20.0),
+                                                          child: TextField(
+                                                            controller:
+                                                                _pagoEmController,
+                                                            decoration:
+                                                                InputDecoration
+                                                                    .collapsed(
+                                                                        hintText:
+                                                                            'Data de pagamento'),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                                actions: [
+                                                  Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    //mainAxisAlignment: MainAxisAlignment.center,
+                                                    //crossAxisAlignment: CrossAxisAlignment.center,
+                                                    children: <Widget>[
+                                                      Container(
+                                                        color: Colors.green,
+                                                        width: 200,
+                                                        //width: MediaQuery.of(context).size.width * 0.20,
+                                                        child: TextButton(
+                                                          child: new Text(
+                                                            'Salvar',
+                                                            style: TextStyle(
+                                                                color: Colors
+                                                                    .white),
+                                                          ),
+                                                          onPressed: () {
+                                                            _addContasPagar();
+                                                          },
+                                                        ),
+                                                      ),
+                                                      SizedBox(
+                                                          width: MediaQuery.of(
+                                                                      context)
+                                                                  .size
+                                                                  .width *
+                                                              0.01),
+                                                      Container(
+                                                        color: Colors.red,
+                                                        width: 200,
+                                                        //width: MediaQuery.of(context).size.width * 0.20,
+                                                        child: TextButton(
+                                                          child: new Text(
+                                                            'Cancelar',
+                                                            style: TextStyle(
+                                                                color: Colors
+                                                                    .white),
+                                                          ),
+                                                          onPressed: () {},
+                                                        ),
+                                                      ),
+                                                      SizedBox(
+                                                        height: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .height *
+                                                            0.02,
+                                                      ),
+                                                    ],
+                                                  )
+                                                ],
+                                              );
+                                            });
+                                      },
+                                      child: Icon(Icons.add, size: 20),
+                                      style: ButtonStyle(
+                                        shape: MaterialStateProperty.all(
+                                            CircleBorder()),
+                                        padding: MaterialStateProperty.all(
+                                            EdgeInsets.all(20)),
+                                        backgroundColor:
+                                            MaterialStateProperty.all(
+                                                Color(0xFF5C77FE)),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ))
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
             Expanded(child: _dados()),
           ],
         ),
