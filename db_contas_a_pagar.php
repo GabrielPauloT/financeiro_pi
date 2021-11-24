@@ -2,7 +2,7 @@
 
     header("Access-Control-Allow-Origin: *");
 
-   $cn = pg_connect("host=localhost port=5432 dbname=contasApagar user=postgres password=gabriel090");
+   $cn = pg_connect("host=localhost port=5432 dbname=contasApagar user=postgres password=2531");
 
    $action = $_POST["acao"];
 

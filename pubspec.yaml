@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   data_table_2: ^2.1.1
   http: ^0.13.4
+  syncfusion_flutter_charts: ^19.3.55
 
 dev_dependencies:
   flutter_test:
@@ -58,6 +59,7 @@ dev_dependencies:
   animated_text_kit: ^4.2.1
   hovering: ^1.0.4
   popover: ^0.2.6+2
+  syncfusion_flutter_charts: ^19.1.57+1
   flutter_login: ^2.2.1
   flutter_icons:
     git:

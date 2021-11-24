@@ -42,34 +42,6 @@ class _ContasReceberState extends State<ContasReceber> {
     _vencimentoController = TextEditingController();
   }
 
-  _addContasPagar() {
-    if (_aPagarController.text.isEmpty ||
-        _clienteController.text.isEmpty ||
-        _pagoEmController.text.isEmpty ||
-        _statuController.text.isEmpty ||
-        _tituloController.text.isEmpty ||
-        _valorPagoController.text.isEmpty ||
-        _valorController.text.isEmpty ||
-        _vencimentoController.text.isEmpty) {
-      print('Textos vazios');
-      return;
-    }
-
-    Services.addLista(
-      _statuController.text,
-      _tituloController.text,
-      _clienteController.text,
-      _vencimentoController.text,
-      _valorController.text,
-      _aPagarController.text,
-      _pagoEmController.text,
-      _valorPagoController.text,
-    ).then((result) {
-      _clearValues();
-      _getRegistros();
-    });
-  }
-
   _getRegistros() {
     Services.getLista().then((lista) {
       setState(() {
@@ -108,8 +80,8 @@ class _ContasReceberState extends State<ContasReceber> {
                 )),
             // começa a tabela
             Container(
-                width: 300,
-                height: 300,
+                width: 400,
+                height: 500,
                 color: Colors.white,
                 padding: const EdgeInsets.all(1),
                 child: ContasReceberTable()),
