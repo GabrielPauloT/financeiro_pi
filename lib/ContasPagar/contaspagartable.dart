@@ -369,7 +369,9 @@ class ContasPagarTableState extends State<ContasPagarTable> {
                                                 style: TextStyle(
                                                     color: Colors.white),
                                               ),
-                                              onPressed: () {},
+                                              onPressed: () {
+                                                Navigator.of(context).pop();
+                                              },
                                             ),
                                           ),
                                           SizedBox(
@@ -630,6 +632,9 @@ class ContasPagarTableState extends State<ContasPagarTable> {
                                                           ),
                                                           onPressed: () {
                                                             _addContasPagar();
+                                                            Navigator.of(
+                                                                    context)
+                                                                .pop();
                                                           },
                                                         ),
                                                       ),
@@ -650,7 +655,11 @@ class ContasPagarTableState extends State<ContasPagarTable> {
                                                                 color: Colors
                                                                     .white),
                                                           ),
-                                                          onPressed: () {},
+                                                          onPressed: () {
+                                                            Navigator.of(
+                                                                    context)
+                                                                .pop();
+                                                          },
                                                         ),
                                                       ),
                                                       SizedBox(
