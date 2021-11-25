@@ -206,227 +206,267 @@ class ContasPagarTableState extends State<ContasPagarTable> {
                     DataCell(
                       Text(_resgistroFiltrado[lista].pagoem),
                     ),
-                    DataCell(Row(
-                      children: [
-                        IconButton(
-                          icon: Icon(
-                            Icons.delete,
-                            color: Colors.red,
-                          ),
-                          onPressed: () {
-                            _deletePessoa(_resgistroFiltrado[lista]);
-                          },
-                        ),
-                        IconButton(
-                          icon: Icon(
-                            Icons.update,
-                            color: Colors.yellow,
-                          ),
-                          onPressed: () {
-                            showDialog(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return AlertDialog(
-                                    scrollable: true,
-                                    title: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Text("Cadatro de Registro"),
-                                          Container(
-                                            padding: EdgeInsets.only(left: 150),
-                                            child: IconButton(
-                                                onPressed: () {
-                                                  Navigator.of(context).pop();
-                                                  _clearValues();
-                                                },
-                                                icon: const Icon(
-                                                  Icons.cancel_outlined,
+                    DataCell(DropdownButton<Widget>(
+                      icon: Icon(Icons.more_horiz_outlined),
+                      items: <Widget>[
+                        Center(
+                          child: Column(
+                            children: [
+                              IconButton(
+                                icon: Icon(
+                                  Icons.delete,
+                                  color: Colors.red,
+                                ),
+                                onPressed: () {
+                                  _deletePessoa(_resgistroFiltrado[lista]);
+                                },
+                              ),
+                              IconButton(
+                                icon: Icon(
+                                  Icons.update,
+                                  color: Colors.yellow,
+                                ),
+                                onPressed: () {
+                                  showDialog(
+                                      context: context,
+                                      builder: (BuildContext context) {
+                                        return AlertDialog(
+                                          scrollable: true,
+                                          title: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Text("Cadatro de Registro"),
+                                                Container(
+                                                  padding: EdgeInsets.only(
+                                                      left: 150),
+                                                  child: IconButton(
+                                                      onPressed: () {
+                                                        Navigator.of(context)
+                                                            .pop();
+                                                        _clearValues();
+                                                      },
+                                                      icon: const Icon(
+                                                        Icons.cancel_outlined,
+                                                        color: Colors.red,
+                                                      )),
+                                                )
+                                              ]),
+                                          content: Padding(
+                                            padding: const EdgeInsets.all(8),
+                                            child: Form(
+                                              child: Column(
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsets.all(20.0),
+                                                    child: TextField(
+                                                      controller:
+                                                          _statuController,
+                                                      decoration: InputDecoration(
+                                                          border:
+                                                              UnderlineInputBorder(),
+                                                          labelText: 'Status'),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsets.all(20.0),
+                                                    child: TextField(
+                                                      inputFormatters: [
+                                                        FilteringTextInputFormatter
+                                                            .digitsOnly
+                                                      ],
+                                                      controller:
+                                                          _tituloController,
+                                                      decoration: InputDecoration(
+                                                          border:
+                                                              UnderlineInputBorder(),
+                                                          labelText: 'titulo'),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsets.all(20.0),
+                                                    child: TextField(
+                                                      controller:
+                                                          _clienteController,
+                                                      decoration: InputDecoration(
+                                                          border:
+                                                              UnderlineInputBorder(),
+                                                          labelText: 'Cliente'),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsets.all(20.0),
+                                                    child: TextField(
+                                                      inputFormatters: [
+                                                        TextInputMask(
+                                                            mask: '99/99/9999')
+                                                      ],
+                                                      controller:
+                                                          _vencimentoController,
+                                                      decoration: InputDecoration(
+                                                          border:
+                                                              UnderlineInputBorder(),
+                                                          labelText:
+                                                              'Venciemnto'),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsets.all(20.0),
+                                                    child: TextField(
+                                                      inputFormatters: [
+                                                        TextInputMask(
+                                                            mask:
+                                                                '\$! !9+,999.99',
+                                                            placeholder: '0',
+                                                            maxPlaceHolders: 3,
+                                                            reverse: true)
+                                                      ],
+                                                      controller:
+                                                          _aPagarController,
+                                                      decoration: InputDecoration(
+                                                          border:
+                                                              UnderlineInputBorder(),
+                                                          labelText:
+                                                              'Valor a Pagar'),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsets.all(20.0),
+                                                    child: TextField(
+                                                      inputFormatters: [
+                                                        TextInputMask(
+                                                            mask:
+                                                                '\$! !9+,999.99',
+                                                            placeholder: '0',
+                                                            maxPlaceHolders: 3,
+                                                            reverse: true)
+                                                      ],
+                                                      controller:
+                                                          _valorController,
+                                                      decoration: InputDecoration(
+                                                          border:
+                                                              UnderlineInputBorder(),
+                                                          labelText: 'Valor'),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsets.all(20.0),
+                                                    child: TextField(
+                                                      inputFormatters: [
+                                                        TextInputMask(
+                                                            mask:
+                                                                '\$! !9+,999.99',
+                                                            placeholder: '0',
+                                                            maxPlaceHolders: 3,
+                                                            reverse: true)
+                                                      ],
+                                                      controller:
+                                                          _valorPagoController,
+                                                      decoration: InputDecoration(
+                                                          border:
+                                                              UnderlineInputBorder(),
+                                                          labelText:
+                                                              'Valor pago'),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsets.all(20.0),
+                                                    child: TextField(
+                                                      inputFormatters: [
+                                                        TextInputMask(
+                                                            mask: '99/99/9999')
+                                                      ],
+                                                      controller:
+                                                          _pagoEmController,
+                                                      decoration: InputDecoration(
+                                                          border:
+                                                              UnderlineInputBorder(),
+                                                          labelText:
+                                                              'Data do pagamento'),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                          actions: [
+                                            Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              //mainAxisAlignment: MainAxisAlignment.center,
+                                              //crossAxisAlignment: CrossAxisAlignment.center,
+                                              children: <Widget>[
+                                                Container(
+                                                  color: Colors.green,
+                                                  width: 200,
+                                                  //width: MediaQuery.of(context).size.width * 0.20,
+                                                  child: TextButton(
+                                                    child: new Text(
+                                                      'Salvar',
+                                                      style: TextStyle(
+                                                          color: Colors.white),
+                                                    ),
+                                                    onPressed: () {
+                                                      _updateContasPagar(
+                                                          _resgistroFiltrado[
+                                                              lista]);
+                                                      Navigator.of(context)
+                                                          .pop();
+                                                    },
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                    width:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width *
+                                                            0.01),
+                                                Container(
                                                   color: Colors.red,
-                                                )),
-                                          )
-                                        ]),
-                                    content: Padding(
-                                      padding: const EdgeInsets.all(8),
-                                      child: Form(
-                                        child: Column(
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsets.all(20.0),
-                                              child: TextField(
-                                                controller: _statuController,
-                                                decoration: InputDecoration(
-                                                    border:
-                                                        UnderlineInputBorder(),
-                                                    labelText: 'Status'),
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsets.all(20.0),
-                                              child: TextField(
-                                                inputFormatters: [
-                                                  FilteringTextInputFormatter
-                                                      .digitsOnly
-                                                ],
-                                                controller: _tituloController,
-                                                decoration: InputDecoration(
-                                                    border:
-                                                        UnderlineInputBorder(),
-                                                    labelText: 'titulo'),
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsets.all(20.0),
-                                              child: TextField(
-                                                controller: _clienteController,
-                                                decoration: InputDecoration(
-                                                    border:
-                                                        UnderlineInputBorder(),
-                                                    labelText: 'Cliente'),
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsets.all(20.0),
-                                              child: TextField(
-                                                inputFormatters: [
-                                                  TextInputMask(
-                                                      mask: '99/99/9999')
-                                                ],
-                                                controller:
-                                                    _vencimentoController,
-                                                decoration: InputDecoration(
-                                                    border:
-                                                        UnderlineInputBorder(),
-                                                    labelText: 'Venciemnto'),
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsets.all(20.0),
-                                              child: TextField(
-                                                inputFormatters: [
-                                                  TextInputMask(
-                                                      mask: '\$! !9+,999.99',
-                                                      placeholder: '0',
-                                                      maxPlaceHolders: 3,
-                                                      reverse: true)
-                                                ],
-                                                controller: _aPagarController,
-                                                decoration: InputDecoration(
-                                                    border:
-                                                        UnderlineInputBorder(),
-                                                    labelText: 'Valor a Pagar'),
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsets.all(20.0),
-                                              child: TextField(
-                                                inputFormatters: [
-                                                  TextInputMask(
-                                                      mask: '\$! !9+,999.99',
-                                                      placeholder: '0',
-                                                      maxPlaceHolders: 3,
-                                                      reverse: true)
-                                                ],
-                                                controller: _valorController,
-                                                decoration: InputDecoration(
-                                                    border:
-                                                        UnderlineInputBorder(),
-                                                    labelText: 'Valor'),
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsets.all(20.0),
-                                              child: TextField(
-                                                inputFormatters: [
-                                                  TextInputMask(
-                                                      mask: '\$! !9+,999.99',
-                                                      placeholder: '0',
-                                                      maxPlaceHolders: 3,
-                                                      reverse: true)
-                                                ],
-                                                controller:
-                                                    _valorPagoController,
-                                                decoration: InputDecoration(
-                                                    border:
-                                                        UnderlineInputBorder(),
-                                                    labelText: 'Valor pago'),
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsets.all(20.0),
-                                              child: TextField(
-                                                inputFormatters: [
-                                                  TextInputMask(
-                                                      mask: '99/99/9999')
-                                                ],
-                                                controller: _pagoEmController,
-                                                decoration: InputDecoration(
-                                                    border:
-                                                        UnderlineInputBorder(),
-                                                    labelText:
-                                                        'Data do pagamento'),
-                                              ),
-                                            ),
+                                                  width: 200,
+                                                  //width: MediaQuery.of(context).size.width * 0.20,
+                                                  child: TextButton(
+                                                    child: new Text(
+                                                      'Cancelar',
+                                                      style: TextStyle(
+                                                          color: Colors.white),
+                                                    ),
+                                                    onPressed: () {
+                                                      Navigator.of(context)
+                                                          .pop();
+                                                    },
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  height: MediaQuery.of(context)
+                                                          .size
+                                                          .height *
+                                                      0.02,
+                                                ),
+                                              ],
+                                            )
                                           ],
-                                        ),
-                                      ),
-                                    ),
-                                    actions: [
-                                      Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        //mainAxisAlignment: MainAxisAlignment.center,
-                                        //crossAxisAlignment: CrossAxisAlignment.center,
-                                        children: <Widget>[
-                                          Container(
-                                            color: Colors.green,
-                                            width: 200,
-                                            //width: MediaQuery.of(context).size.width * 0.20,
-                                            child: TextButton(
-                                              child: new Text(
-                                                'Salvar',
-                                                style: TextStyle(
-                                                    color: Colors.white),
-                                              ),
-                                              onPressed: () {
-                                                _addContasPagar();
-                                                Navigator.of(context).pop();
-                                              },
-                                            ),
-                                          ),
-                                          SizedBox(
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width *
-                                                  0.01),
-                                          Container(
-                                            color: Colors.red,
-                                            width: 200,
-                                            //width: MediaQuery.of(context).size.width * 0.20,
-                                            child: TextButton(
-                                              child: new Text(
-                                                'Cancelar',
-                                                style: TextStyle(
-                                                    color: Colors.white),
-                                              ),
-                                              onPressed: () {
-                                                Navigator.of(context).pop();
-                                              },
-                                            ),
-                                          ),
-                                          SizedBox(
-                                            height: MediaQuery.of(context)
-                                                    .size
-                                                    .height *
-                                                0.02,
-                                          ),
-                                        ],
-                                      )
-                                    ],
-                                  );
-                                });
-                          },
-                        ),
-                      ],
+                                        );
+                                      });
+                                },
+                              ),
+                            ],
+                          ),
+                        )
+                      ].map((Widget value) {
+                        return new DropdownMenuItem<Widget>(
+                          value: value,
+                          child: value,
+                        );
+                      }).toList(),
+                      onChanged: (_) {},
                     )),
                   ])).toList(),
         ),
