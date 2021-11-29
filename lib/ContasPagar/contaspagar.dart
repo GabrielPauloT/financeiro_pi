@@ -1,63 +1,98 @@
 // ignore_for_file: unnecessary_new, prefer_const_constructors
 
+import 'package:brasil_fields/brasil_fields.dart';
 import 'package:easy_mask/easy_mask.dart';
-import 'package:financeiro_pi/ContasPagar/contaspagar.dart';
-import 'package:financeiro_pi/DataTableMysql/services_contas_a_receber.dart';
-import 'package:financeiro_pi/DataTableMysql/financeiro_contas_a_receber.dart';
-import 'package:financeiro_pi/core/repositories/lista_repository.dart';
-import 'package:financeiro_pi/screens/contas_pagar.dart';
+import 'package:financeiro_pi/DataTableMysql/services_contas_a_pagar.dart';
+import 'package:financeiro_pi/DataTableMysql/financeiro_contas_a_pagar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class DashBoard extends StatefulWidget {
-  DashBoard() : super();
+class ContasPagarTabelaHome extends StatefulWidget {
+  ContasPagarTabelaHome() : super();
+  final String title = 'Inicio';
 
   @override
-  DashBoardState createState() => DashBoardState();
+  ContasPagarTabelaHomeState createState() => ContasPagarTabelaHomeState();
 }
 
-class DashBoardState extends State<DashBoard> {
-  late List<Lista> _lista_contas_recebe;
+class ContasPagarTabelaHomeState extends State<ContasPagarTabelaHome> {
+  late List<Lista> _lista;
   late GlobalKey<ScaffoldState> _scaffoldKey;
+  late Lista _select;
+  late bool _isatualizado;
+  late String _titulo;
+
+  late TextEditingController _clienteController;
+  late TextEditingController _vencimentoController;
+  late TextEditingController _pagoEmController;
+  late TextEditingController _statuController;
+  late TextEditingController _valorController;
+  late TextEditingController _aPagarController;
+  late TextEditingController _valorPagoController;
+  late TextEditingController _tituloController;
+  late TextEditingController _controller;
   late List<Lista> _resgistroFiltrado;
+  String _searchResult = '';
 
   @override
   void initState() {
     super.initState();
     _getRegistros();
-    _lista_contas_recebe = [];
-    _resgistroFiltrado = _lista_contas_recebe;
+    _lista = [];
+    _resgistroFiltrado = _lista;
+    _isatualizado = false;
+    _titulo = widget.title;
     _scaffoldKey = GlobalKey();
+
+    _controller = TextEditingController();
+    _aPagarController = TextEditingController();
+    _clienteController = TextEditingController();
+    _pagoEmController = TextEditingController();
+    _statuController = TextEditingController();
+    _tituloController = TextEditingController();
+    _valorController = TextEditingController();
+    _valorPagoController = TextEditingController();
+    _vencimentoController = TextEditingController();
   }
 
 
+
+  _showSnackBar(context, message) {
+    _scaffoldKey.currentState?.showSnackBar(
+      SnackBar(
+        content: Text(message),
+      ),
+    );
+  }
 
   _getRegistros() {
+  
     Services.getLista().then((lista) {
       setState(() {
-        _lista_contas_recebe = lista;
+        _lista = lista;
         _resgistroFiltrado = lista;
       });
+     
     });
   }
-  
 
-  SingleChildScrollView _contas_a_receber() {
+  SingleChildScrollView _dados() {
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: DataTable(
           columns: [
-            DataColumn(label: Text('ID'.toUpperCase())),
-            DataColumn(label: Text('Status'.toUpperCase())),
-            DataColumn(label: Text('Titulo'.toUpperCase())),
-            DataColumn(label: Text('Cliente'.toUpperCase())),
-            DataColumn(label: Text('Vencimento'.toUpperCase())),
-            DataColumn(label: Text('Valor a pagar'.toUpperCase())),
-            DataColumn(label: Text('Valor'.toUpperCase())),
-            DataColumn(label: Text('Valor Pago'.toUpperCase())),
-            DataColumn(label: Text('Data Pagamento'.toUpperCase())),
+            DataColumn(label: Text('ID')),
+            DataColumn(label: Text('Status')),
+            DataColumn(label: Text('Titulo')),
+            DataColumn(label: Text('Cliente')),
+            DataColumn(label: Text('Vencimento')),
+            DataColumn(label: Text('Valor a pagar')),
+            DataColumn(label: Text('Valor')),
+            DataColumn(label: Text('Valor Pago')),
+            DataColumn(label: Text('Data Pagamento')),
+
           ],
           rows: List.generate(
               _resgistroFiltrado.length,
@@ -121,9 +156,8 @@ class DashBoardState extends State<DashBoard> {
               ),
             ),
             SizedBox(height: 50,),
-            Text("Contas a receber", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),),
-            Expanded(child: _contas_a_receber()),
-            Expanded(child: ContasPagarTabelaHome()),
+            Text("Contas a Pagar", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),),
+            Expanded(child: _dados()),
           ],
         ),
       ),

@@ -6,7 +6,7 @@ import 'financeiro_contas_a_receber.dart';
 
 class Services {
   static const ROOT =
-      'http://172.19.21.36/financeiro_pi/db_contas_a_receber.php';
+      'http://192.168.0.105/financeiro/financeiro_pi/db_contas_a_receber.php';
 
   static const _UPDATE_EMP_ACTION = 'UPDATE_EMP';
   static const _GET_ALL_ACTION = 'GET_ALL';
